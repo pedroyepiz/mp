@@ -8,18 +8,28 @@ html{scroll-behavior:smooth}
 body{margin:0;font-family:"Segoe UI",Arial,sans-serif;background:#fff;color:var(--ink);line-height:1.5}
 a{color:inherit}img{max-width:100%;height:auto}.container{width:min(var(--max),calc(100% - 72px));margin:auto}
 
-/* MASTER HEADER — matched to the Estructuras de Datos reference */
-.site-header{height:118px;background:linear-gradient(100deg,#005b40 0%,#07784f 63%,#006245 100%);color:#fff;position:relative;overflow:hidden;z-index:20}
-.header-inner{width:min(1460px,calc(100% - 78px));height:100%;margin:auto;display:flex;align-items:center;gap:20px;position:relative;z-index:3}
+/* MASTER HEADER — componente único para TODO el sitio.
+   El contenedor #site-header es sticky para que el encabezado permanezca visible
+   durante el scroll sin sacar el contenido del flujo normal de la página. */
+#site-header{
+  position:sticky;
+  top:0;
+  z-index:5000;
+  width:100%;
+  background:#006847;
+  box-shadow:0 4px 14px rgba(0,55,39,.18);
+}
+.site-header{height:116px;background:linear-gradient(100deg,#005b40 0%,#08784f 63%,#006245 100%);color:#fff;position:relative;overflow:hidden}
+.header-inner{width:min(1320px,calc(100% - 96px));height:100%;margin:auto;display:flex;align-items:center;gap:18px;position:relative;z-index:3}
 .header-dots,.footer-dots{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.14) 1.1px,transparent 1.1px);background-size:14px 14px;opacity:.33;pointer-events:none}
-.brand{display:flex;align-items:center;gap:16px;text-decoration:none;min-width:345px}
-.brand img{width:64px;height:82px;object-fit:contain;filter:drop-shadow(0 2px 1px rgba(0,0,0,.15))}
-.brand-name{font-weight:800;font-size:23px;line-height:1.03;letter-spacing:-.02em}
-.header-divider{height:84px;border-left:2px solid rgba(255,255,255,.8);margin-left:0}
-.motto{font-size:21px;font-weight:500;white-space:nowrap}
-.header-mark{margin-left:auto;display:flex;align-items:center;gap:14px;white-space:nowrap;position:relative;padding-bottom:8px}
-.header-mark strong{font-size:48px;line-height:1;font-weight:900;font-style:italic;letter-spacing:-.06em}
-.header-mark span{font-size:39px;line-height:1;color:var(--gold);font-weight:900;border-left:2px solid rgba(255,255,255,.8);padding-left:15px}
+.brand{display:flex;align-items:center;gap:17px;text-decoration:none;min-width:330px;color:#fff}
+.brand img{width:62px;height:82px;object-fit:contain;filter:drop-shadow(0 2px 1px rgba(0,0,0,.15))}
+.brand-name{font-weight:850;font-size:22px;line-height:1.04;letter-spacing:-.02em;color:#fff}
+.header-divider{height:88px;border-left:2px solid rgba(255,255,255,.88);margin:0 0 0 2px}
+.motto{font-size:21px;font-weight:500;white-space:nowrap;color:#fff}
+.header-mark{margin-left:auto;display:flex;align-items:center;gap:12px;white-space:nowrap;position:relative;padding:0 0 6px}
+.header-mark strong{font-size:47px;line-height:1;font-weight:900;font-style:italic;letter-spacing:-.06em;color:#fff}
+.header-mark span{font-size:37px;line-height:1;color:var(--gold);font-weight:900;border-left:2px solid rgba(255,255,255,.86);padding-left:14px}
 .header-swoosh{position:absolute;left:31%;right:5%;bottom:10px;height:4px;background:var(--gold);transform:skewY(-4deg);transform-origin:left;border-radius:60%;opacity:.95;z-index:2}
 .header-swoosh:after{content:"";position:absolute;right:6%;bottom:-9px;width:170px;height:18px;border-top:3px solid var(--gold);border-radius:50%;transform:rotate(-5deg)}
 
@@ -114,3 +124,9 @@ a{color:inherit}img{max-width:100%;height:auto}.container{width:min(var(--max),c
   .resource-strip .pseint-logo-link img{width:145px}
 }
 @media print{.back-home{display:none!important}}
+
+
+/* Compensación al navegar con anclas: evita que el encabezado fijo tape títulos. */
+[id]{scroll-margin-top:132px}
+@media(max-width:1100px){[id]{scroll-margin-top:118px}}
+@media(max-width:760px){[id]{scroll-margin-top:108px}}
