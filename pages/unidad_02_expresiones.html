@@ -1,20 +1,672 @@
-<!doctype html><html lang="es-MX"><head><title>Unidad II · Metodología de la Programación</title><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#006847"><link rel="stylesheet" href="../styles/styles.css"><link rel="stylesheet" href="../styles/pages/paginas_uniformes.css"><link rel="stylesheet" href="../styles/pages/tema_codigo_ide_general.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"></head><body class="pe-home pe-course-page pe-course-page" data-depth="../" data-depth="../"><div id="site-header"></div><section class="topic-course-hero"><div class="hero-row"><div><div class="kicker">Unidad II · Duración: 3 horas</div><h1>Expresiones</h1><p>Variables, tipos de datos, operadores y reglas de jerarquía para construir expresiones correctas.</p></div><dl class="course-info"><div><dt>📖 MATERIA:</dt><dd>Metodología de la Programación</dd></div><div><dt>👤 DOCENTE:</dt><dd>Pedro Núñez Yepiz</dd></div><div><dt>🎓 CARRERA:</dt><dd>Tronco Común de Ingeniería</dd></div><div><dt>🏛 FACULTAD:</dt><dd>FIAD — UABC</dd></div></dl></div></section>
-<main class="page-content-shell"><article class="page-content-card content"><div class="official-box"><strong>Competencia oficial.</strong><br>Resolver problemas de ingeniería, a través de la aplicación de los diferentes tipos de operadores, para la construcción de expresiones aritméticas, relacionales y lógicas, con una actitud responsable y propositiva.</div>
-<p class="page-lead">Una expresión combina datos y operadores para producir un valor. Antes de construir condiciones o ciclos, es necesario dominar cómo se representan los datos y en qué orden se evalúan las operaciones.</p>
-<nav class="toc" aria-label="Contenido de la unidad"><a href="#u21">2.1 Variables y Constantes</a><a href="#u22">2.2 Tipos de datos simples</a><a href="#u23">2.3 Operadores</a><a href="#u24">2.4 Expresiones</a></nav>
-<h2 id="u21">2.1. Variables y Constantes</h2><div class="definition-grid"><div class="mini-card"><h4>Variable</h4><p>Espacio lógico cuyo valor puede cambiar durante la ejecución.</p></div><div class="mini-card"><h4>Constante</h4><p>Valor que permanece sin cambios durante la solución del problema.</p></div><div class="mini-card"><h4>Identificador</h4><p>Nombre utilizado para referirse a una variable o constante.</p></div></div><div class="code-window"><div class="code-bar">PSeInt · Variables</div><pre><span class="fn">Definir</span> edad <span class="kw">Como Entero</span>
-<span class="fn">Definir</span> nombre <span class="kw">Como Cadena</span>
-<span class="fn">Definir</span> promedio <span class="kw">Como Real</span></pre></div>
-<h2 id="u22">2.2. Tipos de datos simples</h2><h3>2.2.1. Numéricos</h3><p>Representan valores que pueden participar en operaciones matemáticas. Pueden ser enteros o reales según el tipo de dato definido.</p><h3>2.2.2. Alfanuméricos</h3><p>Representan caracteres o cadenas de texto. Son apropiados para nombres, claves, mensajes y otros datos que no se usan como cantidades.</p><div class="table-wrap"><table><thead><tr><th>Tipo</th><th>Ejemplo</th><th>Uso</th></tr></thead><tbody><tr><td>Entero</td><td>18</td><td>Conteos y valores sin decimales</td></tr><tr><td>Real</td><td>92.5</td><td>Mediciones y resultados decimales</td></tr><tr><td>Cadena</td><td>"Ana"</td><td>Texto</td></tr><tr><td>Carácter</td><td>'A'</td><td>Un símbolo individual</td></tr><tr><td>Lógico</td><td>Verdadero</td><td>Condiciones</td></tr></tbody></table></div>
-<h2 id="u23">2.3. Operadores</h2><h3>2.3.1. Operadores aritméticos</h3><div class="table-wrap"><table><thead><tr><th>Operador</th><th>Significado</th><th>Ejemplo</th></tr></thead><tbody><tr><td>+</td><td>Suma</td><td>a + b</td></tr><tr><td>-</td><td>Resta</td><td>a - b</td></tr><tr><td>*</td><td>Multiplicación</td><td>a * b</td></tr><tr><td>/</td><td>División</td><td>a / b</td></tr><tr><td>^</td><td>Potencia</td><td>a ^ 2</td></tr><tr><td>MOD</td><td>Residuo</td><td>a MOD b</td></tr></tbody></table></div>
-<h3>2.3.2. Operadores relacionales</h3><p>Comparan dos valores y producen un resultado lógico: Verdadero o Falso.</p><div class="op-grid"><div class="mini-card"><h4>=</h4><p>Igual que</p></div><div class="mini-card"><h4>&lt;&gt;</h4><p>Diferente de</p></div><div class="mini-card"><h4>&gt; / &lt;</h4><p>Mayor / menor que</p></div><div class="mini-card"><h4>&gt;= / &lt;=</h4><p>Mayor/menor o igual que</p></div></div>
-<h3>2.3.3. Operadores lógicos</h3><div class="table-wrap"><table><thead><tr><th>A</th><th>B</th><th>A Y B</th><th>A O B</th></tr></thead><tbody><tr><td>V</td><td>V</td><td>V</td><td>V</td></tr><tr><td>V</td><td>F</td><td>F</td><td>V</td></tr><tr><td>F</td><td>V</td><td>F</td><td>V</td></tr><tr><td>F</td><td>F</td><td>F</td><td>F</td></tr></tbody></table></div><p>El operador <strong>NO</strong> invierte el valor lógico de una condición.</p>
-<h3>2.3.4. Operadores de agrupación</h3><p>Los paréntesis permiten indicar qué parte de una expresión debe evaluarse primero y hacen explícita la intención del algoritmo.</p><h3>2.3.5. Jerarquía de operadores</h3><ol><li>Paréntesis.</li><li>Potencias.</li><li>Multiplicación, división y módulo.</li><li>Suma y resta.</li><li>Relacionales.</li><li>Lógicos: NO, Y, O.</li></ol><div class="example"><strong>Ejemplo.</strong> En <code>2 + 2 / 4 * 2 + 1</code>, primero se evalúan división y multiplicación; después suma y resta de izquierda a derecha.</div>
-<h2 id="u24">2.4. Expresiones</h2><h3>2.4.1. Expresiones aritméticas</h3><p>Combinan operandos numéricos y operadores aritméticos para obtener un valor numérico.</p><div class="code-window"><div class="code-bar">PSeInt · Expresión aritmética</div><pre>area &lt;- base * altura
-promedio &lt;- (c1 + c2 + c3) / <span class="num">3</span></pre></div>
-<h3>2.4.2. Expresiones relacionales</h3><p>Comparan valores y producen un resultado lógico.</p><div class="code-window"><div class="code-bar">PSeInt · Expresión relacional</div><pre>edad &gt;= <span class="num">18</span>
-promedio &gt;= <span class="num">60</span></pre></div>
-<h3>2.4.3. Expresiones lógicas</h3><p>Combinan una o más condiciones mediante operadores lógicos.</p><div class="code-window"><div class="code-bar">PSeInt · Expresión lógica</div><pre>(edad &gt;= <span class="num">18</span>) <span class="kw">Y</span> (tieneIdentificacion = Verdadero)
-(promedio &gt;= <span class="num">60</span>) <span class="kw">O</span> (extraordinario = Verdadero)</pre></div><div class="exercise"><strong>Práctica sugerida.</strong> Construye expresiones para: a) determinar si un número está entre 1 y 100; b) calcular el área de un círculo; c) verificar si una persona es mayor de edad y tiene identificación.</div>
-<div class="note"><strong>Nota de numeración:</strong> el esquema proporcionado repite “2.4.2” para expresiones lógicas. En la navegación visual se presenta como <strong>2.4.3</strong> para conservar una secuencia clara, sin alterar los tres contenidos solicitados: aritméticas, relacionales y lógicas.</div>
-<div class="back-row"><a class="btn btn-home" href="../index.html">⌂ Inicio del curso</a><a class="btn btn-back" href="#top">↑ Volver arriba</a></div></article></main><div id="site-footer"></div><script src="../scripts/layout.js" defer></script><script src="../scripts/app.js" defer></script></body></html>
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#006847">
+  <meta name="description" content="Unidad II · Expresiones · Metodología de la Programación">
+  <title>Unidad II · Expresiones</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="../styles/styles.css">
+  <link rel="stylesheet" href="../styles/pages/paginas_uniformes.css">
+  <link rel="stylesheet" href="../styles/pages/tema_codigo_ide_general.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <style>
+    .pe-course-page .page-content-card.content{
+      font-size:1.08rem;
+      line-height:1.68;
+    }
+    .pe-course-page .page-content-card.content p,
+    .pe-course-page .page-content-card.content li,
+    .pe-course-page .page-content-card.content td,
+    .pe-course-page .page-content-card.content th{
+      font-size:1.04rem;
+    }
+    .pe-course-page .page-content-card.content h3{
+      font-size:1.38rem;
+      line-height:1.3;
+      margin-top:1.45rem;
+      margin-bottom:.75rem;
+    }
+
+    .practice-values{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:10px;
+      margin:14px 0 18px;
+    }
+    .practice-value{
+      padding:11px 12px;
+      text-align:center;
+      border:1px solid #cfe6dc;
+      border-radius:9px;
+      background:#fff;
+      color:#07543b;
+      font-weight:800;
+    }
+
+    .resolved-example{
+      margin:18px 0 24px;
+      padding:18px;
+      border:1px solid #cfe6dc;
+      border-left:5px solid #f2b705;
+      border-radius:12px;
+      background:#fffdf6;
+    }
+    .resolved-example h3{margin-top:0!important}
+    .resolved-steps{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:12px;
+      margin-top:14px;
+    }
+    .resolved-step{
+      padding:14px;
+      border:1px solid #d7e8e0;
+      border-radius:10px;
+      background:#fff;
+    }
+    .resolved-step strong{
+      display:block;
+      margin-bottom:6px;
+      color:#006847;
+    }
+
+    .exercise-set{
+      margin:18px 0 24px;
+      padding:18px;
+      border:1px solid #cfe6dc;
+      border-radius:12px;
+      background:#f8fcfa;
+    }
+    .exercise-level{
+      margin-top:16px;
+      padding:15px;
+      border:1px solid #d8e9e1;
+      border-radius:10px;
+      background:#fff;
+    }
+    .exercise-level h4{
+      margin:0 0 10px;
+      color:#07543b;
+      font-size:1.12rem;
+      font-weight:800;
+    }
+    .exercise-level ol{margin-bottom:0}
+    .exercise-level li{margin:.5rem 0}
+
+    .truth-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:14px;
+      margin:18px 0;
+    }
+    .truth-card{
+      padding:14px;
+      border:1px solid #cfe6dc;
+      border-radius:10px;
+      background:#fff;
+    }
+    .truth-card h4{
+      margin:0 0 10px;
+      color:#07543b;
+      text-align:center;
+      font-weight:800;
+    }
+
+    .quiz-section{margin:34px 0 26px}
+    .quiz-heading{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      margin-bottom:14px;
+      padding:10px 14px;
+      background:#006847;
+      color:#fff;
+      border-radius:7px;
+      font-weight:800;
+    }
+    .quiz-list{
+      display:grid;
+      gap:12px;
+      padding:10px;
+      border:1px solid #cfe6dc;
+      border-radius:12px;
+      background:#f8fcfa;
+    }
+    .quiz-q{
+      padding:16px;
+      border:1px solid #cfe6dc;
+      border-radius:10px;
+      background:#fff;
+    }
+    .quiz-q h3{
+      margin:0 0 10px!important;
+      font-size:1rem!important;
+      color:#14382f;
+      font-weight:800;
+    }
+    .quiz-options{
+      display:grid;
+      gap:7px;
+    }
+    .quiz-options button{
+      width:100%;
+      padding:10px 12px;
+      text-align:left;
+      background:#fff;
+      color:#14382f;
+      border:1px solid #bcd8cc;
+      border-radius:7px;
+      font-weight:650;
+      cursor:pointer;
+      transition:.18s ease;
+    }
+    .quiz-options button:hover,
+    .quiz-options button:focus-visible{
+      border-color:#006847;
+      background:#f3faf7;
+    }
+    .quiz-options button.is-correct{
+      background:#e8f7ee;
+      border-color:#218739;
+      color:#145b24;
+    }
+    .quiz-options button.is-wrong{
+      background:#fff0f0;
+      border-color:#c44747;
+      color:#8f2020;
+    }
+    .quiz-feedback{
+      margin-top:9px;
+      min-height:1.35em;
+      font-weight:800;
+    }
+    .quiz-feedback.ok{color:#17752a}
+    .quiz-feedback.bad{color:#b42318}
+
+    .pe-course-page .page-navigation{
+      display:grid;
+      grid-template-columns:1fr 1fr 1fr;
+      gap:14px;
+      align-items:center;
+      margin-top:34px;
+      padding:12px;
+      background:#f3faf7;
+      border:1px solid #cfe6dc;
+      border-radius:14px;
+      box-shadow:0 7px 18px rgba(0,70,48,.08);
+    }
+    .pe-course-page .page-nav-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      min-height:44px;
+      padding:9px 16px;
+      border-radius:9px;
+      font-weight:800;
+      text-decoration:none!important;
+      transition:.2s ease;
+    }
+    .pe-course-page .page-nav-btn.previous,
+    .pe-course-page .page-nav-btn.next{
+      background:#006847;
+      color:#fff!important;
+      border:2px solid #006847;
+      box-shadow:0 4px 10px rgba(0,104,71,.16);
+    }
+    .pe-course-page .page-nav-btn.home{
+      background:#fff;
+      color:#006847!important;
+      border:2px solid #006847;
+    }
+    .pe-course-page .page-navigation .previous{justify-self:start}
+    .pe-course-page .page-navigation .home{justify-self:center}
+    .pe-course-page .page-navigation .next{justify-self:end}
+
+    @media(max-width:820px){
+      .practice-values{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .resolved-steps,
+      .truth-grid{grid-template-columns:1fr}
+    }
+    @media(max-width:640px){
+      .practice-values{grid-template-columns:1fr}
+      .pe-course-page .page-navigation{grid-template-columns:1fr}
+      .pe-course-page .page-navigation .previous,
+      .pe-course-page .page-navigation .home,
+      .pe-course-page .page-navigation .next{justify-self:stretch}
+      .pe-course-page .page-nav-btn{width:100%}
+    }
+  </style>
+
+</head>
+<body class="pe-home pe-course-page" data-depth="../">
+  <div id="site-header"></div>
+
+  <section class="topic-course-hero">
+    <div class="container-fluid pe-shell">
+      <div class="row g-4 align-items-center py-4 py-xl-5">
+        <div class="col-xl-7">
+          <div class="topic-number-pill"><i class="bi bi-braces-asterisk"></i> UNIDAD II · DURACIÓN: 3 HORAS</div>
+          <div class="course-kicker">METODOLOGÍA DE LA PROGRAMACIÓN</div>
+          <h1 class="course-title">Expresiones</h1>
+          <p class="course-subtitle mb-0">Variables, tipos de datos, operadores y reglas de jerarquía para construir expresiones correctas.</p>
+          <div class="hero-line"></div>
+          <div class="course-quote"><i class="bi bi-calculator"></i><span>Una expresión correcta depende tanto de los datos como del orden de evaluación.</span></div>
+        </div>
+        <div class="col-xl-5">
+          <div id="course-info" data-topic="Unidad II · Expresiones"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="container-fluid pe-shell page-content-shell">
+    <div class="page-content-card content">
+
+      <div class="note purpose-box">
+        <b>Propósito:</b> resolver problemas mediante el uso de variables, constantes, tipos de datos y operadores para construir expresiones aritméticas, relacionales y lógicas.
+      </div>
+
+      <div class="official-box">
+        <strong>Competencia oficial.</strong><br>
+        Resolver problemas de ingeniería, a través de la aplicación de los diferentes tipos de operadores, para la construcción de expresiones aritméticas, relacionales y lógicas, con una actitud responsable y propositiva.
+      </div>
+
+      <p class="page-lead">Una expresión combina datos y operadores para producir un valor. Antes de construir condiciones o ciclos, es necesario dominar cómo se representan los datos y en qué orden se evalúan las operaciones.</p>
+
+      <nav class="topic-nav" aria-label="Contenido de la unidad">
+        <a href="#u21">2.1 Variables y Constantes</a>
+        <a href="#u22">2.2 Tipos de datos simples</a>
+        <a href="#u23">2.3 Operadores</a>
+        <a href="#u24">2.4 Expresiones</a>
+        <a href="#u25">2.5 Ejemplo resuelto</a>
+        <a href="#u26">2.6 Práctica</a>
+        <a href="#repaso">Repaso rápido</a>
+      </nav>
+
+      <section class="lesson-section" id="u21">
+        <div class="section-heading"><i class="bi bi-boxes"></i><h2>2.1 · VARIABLES Y CONSTANTES</h2></div>
+        <div class="definition-grid">
+          <div class="mini-card"><div class="concept-icon">🔁</div><h4>Variable</h4><p>Espacio lógico cuyo valor puede cambiar durante la ejecución.</p></div>
+          <div class="mini-card"><div class="concept-icon">📌</div><h4>Constante</h4><p>Valor que permanece sin cambios durante la solución del problema.</p></div>
+          <div class="mini-card"><div class="concept-icon">🏷️</div><h4>Identificador</h4><p>Nombre utilizado para referirse a una variable o constante.</p></div>
+        </div>
+        <section class="code-card code-dark">
+          <div class="code-head">
+            <div class="file-name">PSeInt · Variables</div>
+            <button class="copy-btn" type="button" data-copy-target="codigo-variables">Copiar código</button>
+          </div>
+          <pre id="codigo-variables"><code>Definir edad Como Entero
+Definir nombre Como Cadena
+Definir promedio Como Real</code></pre>
+        </section>
+      </section>
+
+      <section class="lesson-section" id="u22">
+        <div class="section-heading"><i class="bi bi-database-fill"></i><h2>2.2 · TIPOS DE DATOS SIMPLES</h2></div>
+        <h3>2.2.1. Numéricos</h3>
+        <p>Representan valores que pueden participar en operaciones matemáticas. Pueden ser enteros o reales según el tipo de dato definido.</p>
+        <h3>2.2.2. Alfanuméricos</h3>
+        <p>Representan caracteres o cadenas de texto. Son apropiados para nombres, claves, mensajes y otros datos que no se usan como cantidades.</p>
+        <div class="table-responsive">
+          <table class="table topic-table align-middle">
+            <thead><tr><th>Tipo</th><th>Ejemplo</th><th>Uso</th></tr></thead>
+            <tbody>
+              <tr><td>Entero</td><td>18</td><td>Conteos y valores sin decimales</td></tr>
+              <tr><td>Real</td><td>92.5</td><td>Mediciones y resultados decimales</td></tr>
+              <tr><td>Cadena</td><td>"Ana"</td><td>Texto</td></tr>
+              <tr><td>Carácter</td><td>'A'</td><td>Un símbolo individual</td></tr>
+              <tr><td>Lógico</td><td>Verdadero</td><td>Condiciones</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="lesson-section" id="u23">
+        <div class="section-heading"><i class="bi bi-calculator-fill"></i><h2>2.3 · OPERADORES</h2></div>
+
+        <h3>2.3.1. Operadores aritméticos</h3>
+        <div class="table-responsive">
+          <table class="table topic-table align-middle">
+            <thead><tr><th>Operador</th><th>Significado</th><th>Ejemplo</th></tr></thead>
+            <tbody>
+              <tr><td>+</td><td>Suma</td><td>a + b</td></tr>
+              <tr><td>-</td><td>Resta</td><td>a - b</td></tr>
+              <tr><td>*</td><td>Multiplicación</td><td>a * b</td></tr>
+              <tr><td>/</td><td>División</td><td>a / b</td></tr>
+              <tr><td>^</td><td>Potencia</td><td>a ^ 2</td></tr>
+              <tr><td>MOD</td><td>Residuo</td><td>a MOD b</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>2.3.2. Operadores relacionales</h3>
+        <p>Comparan dos valores y producen un resultado lógico: Verdadero o Falso.</p>
+        <div class="op-grid">
+          <div class="mini-card"><h4>=</h4><p>Igual que</p></div>
+          <div class="mini-card"><h4>&lt;&gt;</h4><p>Diferente de</p></div>
+          <div class="mini-card"><h4>&gt; / &lt;</h4><p>Mayor / menor que</p></div>
+          <div class="mini-card"><h4>&gt;= / &lt;=</h4><p>Mayor/menor o igual que</p></div>
+        </div>
+
+        <h3>2.3.3. Operadores lógicos</h3>
+        <div class="table-responsive">
+          <table class="table topic-table align-middle">
+            <thead><tr><th>A</th><th>B</th><th>A Y B</th><th>A O B</th></tr></thead>
+            <tbody>
+              <tr><td>V</td><td>V</td><td>V</td><td>V</td></tr>
+              <tr><td>V</td><td>F</td><td>F</td><td>V</td></tr>
+              <tr><td>F</td><td>V</td><td>F</td><td>V</td></tr>
+              <tr><td>F</td><td>F</td><td>F</td><td>F</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>El operador <strong>NO</strong> invierte el valor lógico de una condición.</p>
+
+        <div class="truth-grid">
+          <div class="truth-card">
+            <h4>Operador Y (AND)</h4>
+            <div class="table-responsive">
+              <table class="table topic-table align-middle mb-0">
+                <thead><tr><th>A</th><th>B</th><th>A Y B</th></tr></thead>
+                <tbody>
+                  <tr><td>V</td><td>V</td><td>V</td></tr>
+                  <tr><td>V</td><td>F</td><td>F</td></tr>
+                  <tr><td>F</td><td>V</td><td>F</td></tr>
+                  <tr><td>F</td><td>F</td><td>F</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="truth-card">
+            <h4>Operador O (OR)</h4>
+            <div class="table-responsive">
+              <table class="table topic-table align-middle mb-0">
+                <thead><tr><th>A</th><th>B</th><th>A O B</th></tr></thead>
+                <tbody>
+                  <tr><td>V</td><td>V</td><td>V</td></tr>
+                  <tr><td>V</td><td>F</td><td>V</td></tr>
+                  <tr><td>F</td><td>V</td><td>V</td></tr>
+                  <tr><td>F</td><td>F</td><td>F</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="truth-card">
+            <h4>Operador NO (NOT)</h4>
+            <div class="table-responsive">
+              <table class="table topic-table align-middle mb-0">
+                <thead><tr><th>A</th><th>NO A</th></tr></thead>
+                <tbody>
+                  <tr><td>V</td><td>F</td></tr>
+                  <tr><td>F</td><td>V</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+
+        <h3>2.3.4. Operadores de agrupación</h3>
+        <p>Los paréntesis permiten indicar qué parte de una expresión debe evaluarse primero y hacen explícita la intención del algoritmo.</p>
+
+        <h3>2.3.5. Jerarquía de operadores</h3>
+        <ol>
+          <li>Paréntesis.</li>
+          <li>Potencias.</li>
+          <li>Multiplicación, división y módulo.</li>
+          <li>Suma y resta.</li>
+          <li>Relacionales.</li>
+          <li>Lógicos: NO, Y, O.</li>
+        </ol>
+
+        <div class="example"><strong>Ejemplo.</strong> En <code>2 + 2 / 4 * 2 + 1</code>, primero se evalúan división y multiplicación; después suma y resta de izquierda a derecha.</div>
+      </section>
+
+      <section class="lesson-section" id="u24">
+        <div class="section-heading"><i class="bi bi-braces"></i><h2>2.4 · EXPRESIONES</h2></div>
+
+        <h3>2.4.1. Expresiones aritméticas</h3>
+        <p>Combinan operandos numéricos y operadores aritméticos para obtener un valor numérico.</p>
+        <section class="code-card code-dark">
+          <div class="code-head">
+            <div class="file-name">PSeInt · Expresión aritmética</div>
+            <button class="copy-btn" type="button" data-copy-target="codigo-aritmetica">Copiar código</button>
+          </div>
+          <pre id="codigo-aritmetica"><code>area &lt;- base * altura
+promedio &lt;- (c1 + c2 + c3) / 3</code></pre>
+        </section>
+
+        <h3>2.4.2. Expresiones relacionales</h3>
+        <p>Comparan valores y producen un resultado lógico.</p>
+        <section class="code-card code-dark">
+          <div class="code-head">
+            <div class="file-name">PSeInt · Expresión relacional</div>
+            <button class="copy-btn" type="button" data-copy-target="codigo-relacional">Copiar código</button>
+          </div>
+          <pre id="codigo-relacional"><code>edad &gt;= 18
+promedio &gt;= 60</code></pre>
+        </section>
+
+        <h3>2.4.3. Expresiones lógicas</h3>
+        <p>Combinan una o más condiciones mediante operadores lógicos.</p>
+        <section class="code-card code-dark">
+          <div class="code-head">
+            <div class="file-name">PSeInt · Expresión lógica</div>
+            <button class="copy-btn" type="button" data-copy-target="codigo-logica">Copiar código</button>
+          </div>
+          <pre id="codigo-logica"><code>(edad &gt;= 18) Y (tieneIdentificacion = Verdadero)
+(promedio &gt;= 60) O (extraordinario = Verdadero)</code></pre>
+        </section>
+
+        
+
+        
+        <section class="lesson-section" id="u25">
+          <div class="section-heading">
+            <i class="bi bi-check2-circle"></i>
+            <h2>2.5 · EJEMPLO RESUELTO · EVALUACIÓN DE UNA EXPRESIÓN LÓGICA</h2>
+          </div>
+
+          <div class="resolved-example">
+            <h3>Ejemplo</h3>
+            <p><strong>Valores:</strong> <code>num1 = 15</code>, <code>num2 = 10</code>, <code>N = 5</code></p>
+            <p><strong>Expresión:</strong> <code>(num1 &gt; num2) AND (num1 &gt; N * 2)</code></p>
+
+            <div class="resolved-steps">
+              <div class="resolved-step">
+                <strong>Paso 1 · Resolver la primera relación</strong>
+                <code>num1 &gt; num2</code><br>
+                <code>15 &gt; 10</code> → <b>Verdadero</b>
+              </div>
+
+              <div class="resolved-step">
+                <strong>Paso 2 · Resolver la segunda relación</strong>
+                Primero: <code>N * 2 = 5 * 2 = 10</code><br>
+                Después: <code>15 &gt; 10</code> → <b>Verdadero</b>
+              </div>
+
+              <div class="resolved-step">
+                <strong>Paso 3 · Aplicar AND</strong>
+                <code>Verdadero AND Verdadero</code><br>
+                Resultado → <b>Verdadero</b>
+              </div>
+            </div>
+
+            <p class="mt-3 mb-0"><strong>Resultado final:</strong> <span class="badge text-bg-success">Verdadero</span></p>
+          </div>
+        </section>
+
+        <section class="lesson-section" id="u26">
+          <div class="section-heading">
+            <i class="bi bi-pencil-square"></i>
+            <h2>2.6 · PRÁCTICA · EVALÚA 10 EXPRESIONES</h2>
+          </div>
+
+          <div class="exercise-set">
+            <p>
+              <strong>Instrucciones:</strong> sustituye los valores indicados, respeta la jerarquía de operadores,
+              resuelve primero los paréntesis y las operaciones aritméticas, después las relaciones y al final
+              los operadores lógicos. Determina si el resultado final es <strong>Verdadero</strong> o <strong>Falso</strong>.
+            </p>
+
+            <div class="practice-values">
+              <div class="practice-value"><code>num1 = 15</code></div>
+              <div class="practice-value"><code>num2 = 10</code></div>
+              <div class="practice-value"><code>num3 = 20</code></div>
+              <div class="practice-value"><code>N = 5</code></div>
+            </div>
+
+            <div class="exercise-level">
+              <h4>Nivel 1 · Básicas (Relacionales)</h4>
+              <p>Determina si el resultado final de cada expresión es <strong>Verdadero</strong> o <strong>Falso</strong>.</p>
+              <ol>
+                <li><code>num1 &gt; num2</code></li>
+                <li><code>num2 == (N * 2)</code></li>
+                <li><code>num1 &lt;= N</code></li>
+              </ol>
+            </div>
+
+            <div class="exercise-level">
+              <h4>Nivel 2 · Intermedias (Operadores Lógicos)</h4>
+              <ol start="4">
+                <li><code>(num1 &gt; num2) AND (num1 &gt; N * 2)</code></li>
+                <li><code>(num2 &lt; N) OR (num3 == 20)</code></li>
+                <li><code>NOT (num1 == 15)</code></li>
+              </ol>
+            </div>
+
+            <div class="exercise-level">
+              <h4>Nivel 3 · Complejas (Jerarquía y agrupaciones)</h4>
+              <ol start="7">
+                <li><code>(num1 &gt;= 10 AND num2 &lt;= 10) AND (N != 0)</code></li>
+                <li><code>NOT (num3 &gt; num1 OR num2 &lt; N) AND (num1 == 15)</code></li>
+                <li><code>((num1 + N) &gt; num3) OR ((num2 * N) &gt;= 50 AND num1 != num2)</code></li>
+                <li><code>(num3 % 2 == 0) AND NOT (num1 &lt; num2) AND ((N * 3) == num1)</code></li>
+              </ol>
+            </div>
+
+            <div class="activity-delivery mt-3">
+              <i class="bi bi-journal-check"></i>
+              <strong>Entrega:</strong> muestra el procedimiento de cada expresión. No escribas únicamente Verdadero o Falso;
+              anota cómo se evaluó cada parte hasta llegar al resultado final.
+            </div>
+          </div>
+        </section>
+
+        <div class="note-box"><strong>Nota de numeración:</strong> el esquema proporcionado repite “2.4.2” para expresiones lógicas. En la navegación visual se presenta como <strong>2.4.3</strong> para conservar una secuencia clara, sin alterar los tres contenidos solicitados: aritméticas, relacionales y lógicas.</div>
+      </section>
+
+
+      <section class="quiz-section" id="repaso">
+        <div class="quiz-heading">
+          <i class="bi bi-check-square-fill"></i>
+          <span>REPASO RÁPIDO · COMPRUEBA LO APRENDIDO</span>
+        </div>
+
+        <div class="quiz-list">
+          <article class="quiz-q" data-answer="c">
+            <h3>1. ¿Qué se evalúa primero cuando aparece dentro de una expresión?</h3>
+            <div class="quiz-options">
+              <button type="button" data-opt="a">Las sumas.</button>
+              <button type="button" data-opt="b">Los operadores OR.</button>
+              <button type="button" data-opt="c">Los paréntesis.</button>
+            </div>
+            <div class="quiz-feedback" aria-live="polite"></div>
+          </article>
+
+          <article class="quiz-q" data-answer="b">
+            <h3>2. ¿Qué produce una expresión relacional?</h3>
+            <div class="quiz-options">
+              <button type="button" data-opt="a">Siempre un valor entero.</button>
+              <button type="button" data-opt="b">Un valor lógico: Verdadero o Falso.</button>
+              <button type="button" data-opt="c">Siempre una cadena.</button>
+            </div>
+            <div class="quiz-feedback" aria-live="polite"></div>
+          </article>
+
+          <article class="quiz-q" data-answer="a">
+            <h3>3. ¿Cuándo es verdadera una expresión con el operador AND?</h3>
+            <div class="quiz-options">
+              <button type="button" data-opt="a">Cuando ambas condiciones son verdaderas.</button>
+              <button type="button" data-opt="b">Cuando al menos una condición es verdadera.</button>
+              <button type="button" data-opt="c">Cuando ambas condiciones son falsas.</button>
+            </div>
+            <div class="quiz-feedback" aria-live="polite"></div>
+          </article>
+
+          <article class="quiz-q" data-answer="c">
+            <h3>4. Con <code>num1 = 15</code> y <code>num2 = 10</code>, ¿qué produce <code>num1 &lt; num2</code>?</h3>
+            <div class="quiz-options">
+              <button type="button" data-opt="a">15.</button>
+              <button type="button" data-opt="b">Verdadero.</button>
+              <button type="button" data-opt="c">Falso.</button>
+            </div>
+            <div class="quiz-feedback" aria-live="polite"></div>
+          </article>
+
+          <article class="quiz-q" data-answer="b">
+            <h3>5. ¿Qué hace el operador NOT (NO)?</h3>
+            <div class="quiz-options">
+              <button type="button" data-opt="a">Compara dos números.</button>
+              <button type="button" data-opt="b">Invierte el valor lógico de una condición.</button>
+              <button type="button" data-opt="c">Suma dos condiciones.</button>
+            </div>
+            <div class="quiz-feedback" aria-live="polite"></div>
+          </article>
+        </div>
+      </section>
+
+      <nav class="page-navigation" aria-label="Navegación entre unidades">
+        <a class="page-nav-btn previous" href="unidad_01_metodologia_solucion_problemas.html">
+          <i class="bi bi-arrow-left"></i><span>Anterior</span>
+        </a>
+        <a class="page-nav-btn home" href="../index.html">
+          <i class="bi bi-house-door-fill"></i><span>Inicio</span>
+        </a>
+        <span></span>
+      </nav>
+
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <script src="../scripts/codigo.js" defer></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll(".quiz-q").forEach((question) => {
+        const correct = question.dataset.answer;
+        const feedback = question.querySelector(".quiz-feedback");
+
+        question.querySelectorAll("[data-opt]").forEach((button) => {
+          button.addEventListener("click", () => {
+            question.querySelectorAll("[data-opt]").forEach((btn) => {
+              btn.classList.remove("is-correct", "is-wrong");
+            });
+
+            if (button.dataset.opt === correct) {
+              button.classList.add("is-correct");
+              feedback.textContent = "✓ Correcto";
+              feedback.className = "quiz-feedback ok";
+            } else {
+              button.classList.add("is-wrong");
+              feedback.textContent = "✗ Revisa la explicación del tema y vuelve a intentarlo.";
+              feedback.className = "quiz-feedback bad";
+            }
+          });
+        });
+      });
+    });
+  </script>
+
+  <script src="../scripts/layout.js" defer></script>
+</body>
+</html>
