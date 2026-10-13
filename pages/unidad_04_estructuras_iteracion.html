@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#006847">
+  <meta name="description" content="Unidad IV · Estructuras de control de iteración · Metodología de la Programación">
+  <title>Unidad IV · Estructuras de control de iteración</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/styles.css">
+  <link rel="stylesheet" href="../styles/pages/paginas_uniformes.css">
+  <link rel="stylesheet" href="../styles/pages/tema_codigo_ide_general.css">
+  <link rel="stylesheet" href="../styles/pages/unidad_04_iteracion_mp.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body class="pe-home pe-course-page page-unidad-04" data-depth="../">
+  <div id="site-header"></div>
+
+  <section class="topic-course-hero">
+    <div class="container-fluid pe-shell">
+      <div class="row g-4 align-items-center py-4 py-xl-5">
+        <div class="col-xl-7">
+          <div class="topic-number-pill"><i class="bi bi-arrow-repeat"></i> UNIDAD IV · DURACIÓN: 4 HORAS</div>
+          <div class="course-kicker">METODOLOGÍA DE LA PROGRAMACIÓN</div>
+          <h1 class="course-title">Estructuras de control de iteración</h1>
+          <p class="course-subtitle mb-0">Tipos de ciclos, sentencias repetitivas, control por contador, centinela, bandera y anidación.</p>
+          <div class="hero-line"></div>
+          <div class="course-quote"><i class="bi bi-arrow-clockwise"></i><span>Repetir no es copiar instrucciones: es controlar cuándo volver a ejecutarlas y cuándo detenerse.</span></div>
+        </div>
+        <div class="col-xl-5"><div id="course-info" data-topic="Unidad IV · Estructuras de control de iteración"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <main class="container-fluid pe-shell page-content-shell">
+    <div class="page-content-card content">
+      <div class="note purpose-box"><b>Propósito:</b> comprender y aplicar estructuras repetitivas para resolver problemas donde una misma tarea debe ejecutarse varias veces de forma controlada.</div>
+      <div class="official-box"><strong>Competencia oficial.</strong><br>Aplicar las estructuras de repetición, mediante la propuesta de soluciones, para resolver problemas de ingeniería donde se requiere la iteración de tareas, con una actitud analítica, propositiva y responsable.</div>
+      <div class="syntax-note"><strong>Convención de código:</strong> usar comentarios de identificación, <code>Algoritmo</code> / <code>FinAlgoritmo</code>, asignación con <code>=</code> y punto y coma en declaraciones, lecturas, escrituras y asignaciones.</div>
+
+      <nav class="topic-nav" aria-label="Contenido de la unidad">
+        <a href="#introduccion">Introducción</a><a href="#tipos">Tipos de ciclo</a><a href="#sentencias">Para · Mientras · Repetir</a><a href="#determinado">Determinado</a><a href="#indeterminado">Indeterminado</a><a href="#mixto">Mixto</a><a href="#anidacion">Anidación</a><a href="#practica">Práctica</a><a href="#repaso">Repaso</a>
+      </nav>
+
+      <section class="lesson-section" id="introduccion">
+        <div class="section-heading"><i class="bi bi-infinity"></i><h2>4.1 · INTRODUCCIÓN A LOS CICLOS</h2></div>
+        <p class="lesson-lead">Un ciclo permite repetir un conjunto de instrucciones mientras exista una razón para continuar. Todo ciclo debe tener un inicio, un cuerpo, una condición y un cambio que acerque el proceso a su terminación.</p>
+        <div class="explain-card">
+          <h3>Dos ideas que no deben confundirse</h3>
+          <p><strong>Tipo de ciclo</strong> describe cómo se controla la repetición: determinado, indeterminado o mixto. <strong>Sentencia de ciclo</strong> es la herramienta que usamos para escribirlo: <code>Para</code>, <code>Mientras</code> o <code>Repetir</code>.</p>
+          <p>Por ejemplo, un ciclo determinado puede escribirse con cualquiera de las tres sentencias. Lo importante es que sabemos desde antes cuántas veces se repetirá. Un ciclo indeterminado, en cambio, termina por un evento, centinela o bandera y normalmente se expresa con <code>Mientras</code> o <code>Repetir</code>.</p>
+          <div class="analogy"><strong>Analogía:</strong> correr una pista diez vueltas, correr hasta que suene una alarma y correr máximo diez vueltas pero detenerse si aparece una señal son tres formas distintas de controlar una misma acción repetitiva.</div>
+        </div>
+      </section>
+
+      <section class="lesson-section" id="tipos">
+        <div class="section-heading"><i class="bi bi-diagram-3-fill"></i><h2>TIPOS DE CICLO SEGÚN SU CONTROL</h2></div>
+        <div class="type-grid">
+          <article class="type-card"><h3>Determinado</h3><p>El número de repeticiones se conoce o puede calcularse antes de iniciar. Su control más común es un contador.</p></article>
+          <article class="type-card"><h3>Indeterminado</h3><p>No sabemos cuántas vueltas habrá. Termina por un dato, un evento, un centinela o un cambio de bandera.</p></article>
+          <article class="type-card"><h3>Mixto</h3><p>Combina un límite previsto con una condición que puede terminar el ciclo antes de alcanzar ese límite.</p></article>
+        </div>
+        <table class="compare-table"><thead><tr><th>Tipo</th><th>Repeticiones</th><th>Control</th><th>Sentencias habituales</th></tr></thead><tbody><tr><td>Determinado</td><td>Conocidas o calculables.</td><td>Contador.</td><td>Para, Mientras, Repetir.</td></tr><tr><td>Indeterminado</td><td>No conocidas.</td><td>Centinela, condición, bandera.</td><td>Mientras, Repetir.</td></tr><tr><td>Mixto</td><td>Existe máximo, pero puede terminar antes.</td><td>Contador + bandera/condición.</td><td>Mientras o Repetir.</td></tr></tbody></table>
+      </section>
+
+      <section class="lesson-section" id="sentencias">
+        <div class="section-heading"><i class="bi bi-code-square"></i><h2>SENTENCIAS DE CICLO: PARA, MIENTRAS Y REPETIR</h2></div>
+        <p class="lesson-lead">Las sentencias son formas distintas de expresar una repetición. La elección depende de dónde conviene evaluar la condición y quién administra la variable de control.</p>
+        <div class="sentence-grid"><article class="sentence-card"><h3>Para</h3><p>Integra valor inicial, límite y paso. Es muy natural para recorridos con contador.</p></article><article class="sentence-card"><h3>Mientras</h3><p>Evalúa la condición antes del cuerpo. Puede ejecutarse cero veces.</p></article><article class="sentence-card"><h3>Repetir</h3><p>Ejecuta el cuerpo primero y evalúa al final. Se ejecuta al menos una vez.</p></article></div>
+        <figure class="diagram-card"><img src="../images/ciclos/ciclo_para_sintaxis_basica.webp" alt="Sintaxis básica del ciclo Para" loading="lazy" decoding="async"><figcaption>Sintaxis básica de Para.</figcaption></figure>
+        <figure class="diagram-card"><img src="../images/ciclos/ciclo_mientras_sintaxis_basica.webp" alt="Sintaxis básica del ciclo Mientras" loading="lazy" decoding="async"><figcaption>Sintaxis básica de Mientras.</figcaption></figure>
+        <figure class="diagram-card"><img src="../images/ciclos/ciclo_repetir_sintaxis_basica.webp" alt="Sintaxis básica del ciclo Repetir" loading="lazy" decoding="async"><figcaption>Sintaxis básica de Repetir.</figcaption></figure>
+      </section>
+
+      <section class="lesson-section" id="determinado">
+        <div class="section-heading"><i class="bi bi-123"></i><h2>4.2 · CICLO DETERMINADO · CONTROLADO POR CONTADOR</h2></div>
+        <p class="lesson-lead">Un ciclo determinado se usa cuando sabemos, o podemos calcular antes de empezar, cuántas veces debe repetirse la tarea.</p>
+        <div class="explain-card"><h3>¿Cómo funciona?</h3><p>Se define un valor inicial, un límite y un paso. El contador registra el avance. El ciclo termina cuando el contador deja de cumplir la condición.</p><p>No es obligatorio usar <code>Para</code>: el mismo recorrido puede programarse con <code>Mientras</code> o <code>Repetir</code>.</p><div class="analogy"><strong>Analogía:</strong> subir diez escalones. Sabemos cuántos hay antes de comenzar. Podemos llevar el conteo de distintas formas, pero la cantidad de pasos sigue siendo conocida.</div></div>
+        <figure class="diagram-card"><img src="../images/ciclos/ciclo_determinado_caracteristicas_basicas.webp" alt="Características de un ciclo determinado" loading="lazy" decoding="async"><figcaption>Características básicas de un ciclo determinado.</figcaption></figure>
+        <figure class="diagram-card"><img src="../images/ciclos/ciclo_contador_caracteristicas_basicas.webp" alt="Características de un ciclo controlado por contador" loading="lazy" decoding="async"><figcaption>El contador controla el avance y permite prever la terminación.</figcaption></figure>
+
+        <div class="example-code-diagram-grid"><div class="example-code-column"><section class="code-card code-dark"><div class="code-head"><div class="file-name">PSeInt · Determinado con Para</div><button class="copy-btn" type="button" data-copy-target="det-para">Copiar código</button></div><pre id="det-para"><code>//PEDRO NUÑEZ YEPIZ MATR: 300523
+//DESCR: CICLO DETERMINADO USANDO PARA
+//FECHA: 13 OCTUBRE 2026
+Algoritmo NYP_ACT4_01
+    Definir i Como Entero;
+    Para i = 1 Hasta 10 Con Paso 1 Hacer
+        Escribir i;
+    FinPara
+FinAlgoritmo</code></pre></section></div><div class="example-diagram-column"><figure class="diagram-card example-flow-figure"><img src="../images/ciclos/ciclo_determinado_para_1_al_10.webp" alt="Ciclo determinado usando Para" loading="lazy" decoding="async"><figcaption>Para administra el contador automáticamente.</figcaption></figure></div></div>
+
+        <div class="example-code-diagram-grid"><div class="example-code-column"><section class="code-card code-dark"><div class="code-head"><div class="file-name">PSeInt · Determinado con Mientras</div><button class="copy-btn" type="button" data-copy-target="det-mientras">Copiar código</button></div><pre id="det-mientras"><code>//PEDRO NUÑEZ YEPIZ MATR: 300523
+//DESCR: CICLO DETERMINADO USANDO MIENTRAS
+//FECHA: 13 OCTUBRE 2026
+Algoritmo NYP_ACT4_02
+    Definir i Como Entero;
+    i = 1;
+    Mientras i &lt;= 10 Hacer
+        Escribir i;
+        i = i + 1;
+    FinMientras
+FinAlgoritmo</code></pre></section></div><div class="example-diagram-column"><figure class="diagram-card example-flow-figure"><img src="../images/ciclos/ciclo_determinado_mientras_1_al_10.webp" alt="Ciclo determinado usando Mientras" loading="lazy" decoding="async"><figcaption>Mientras evalúa antes de cada vuelta.</figcaption></figure></div></div>
+
+        <div class="example-code-diagram-grid"><div class="example-code-column"><section class="code-card code-dark"><div class="code-head"><div class="file-name">PSeInt · Determinado con Repetir</div><button class="copy-btn" type="button" data-copy-target="det-repetir">Copiar código</button></div><pre id="det-repetir"><code>//PEDRO NUÑEZ YEPIZ MATR: 300523
+//DESCR: CICLO DETERMINADO USANDO REPETIR
+//FECHA: 13 OCTUBRE 2026
+Algoritmo NYP_ACT4_03
+    Definir i Como Entero;
+    i = 1;
+    Repetir
+        Escribir i;
+        i = i + 1;
+    Mientras Que i &lt;= 10;
+FinAlgoritmo</code></pre></section></div><div class="example-diagram-column"><figure class="diagram-card example-flow-figure"><img src="../images/ciclos/ciclo_determinado_repetir_1_al_10.webp" alt="Ciclo determinado usando Repetir" loading="lazy" decoding="async"><figcaption>Repetir evalúa la condición al final.</figcaption></figure></div></div>
+
+        <div class="explain-card"><h3>Explicación</h3><p>Los tres ejemplos muestran del 1 al 10 y realizan diez repeticiones. La diferencia está en quién administra el contador y en qué momento se evalúa la condición, no en el tipo de ciclo.</p></div>
+      </section>
+
+      <section class="lesson-section" id="indeterminado">
+        <div class="section-heading"><i class="bi bi-flag-fill"></i><h2>4.3 · CICLO INDETERMINADO · CENTINELA O BANDERA</h2></div>
+        <p class="lesson-lead">En un ciclo indeterminado la cantidad de vueltas depende de lo que ocurra durante la ejecución. No podemos saberla con certeza antes de comenzar.</p>
+        <div class="explain-card"><h3>Centinela y bandera</h3><p>El <strong>centinela</strong> es un valor especial de entrada que indica el final. La <strong>bandera</strong> es una variable lógica que representa un estado, por ejemplo <code>Verdadero</code> para continuar y <code>Falso</code> para terminar.</p><p>Este tipo de ciclo suele escribirse con <code>Mientras</code> o <code>Repetir</code>. La diferencia principal es que Mientras revisa la condición antes y Repetir después.</p><div class="analogy"><strong>Analogía:</strong> atender clientes hasta que ya no llegue nadie. No sabemos cuántos clientes serán; el final depende del evento.</div></div>
+        <figure class="diagram-card"><img src="../images/ciclos/ciclo_bandera_caracteristicas_basicas.webp" alt="Características de ciclo controlado por bandera" loading="lazy" decoding="async"><figcaption>La bandera mantiene o detiene un ciclo según su estado.</figcaption></figure>
+
+        <div class="example-code-diagram-grid"><div class="example-code-column"><section class="code-card code-dark"><div class="code-head"><div class="file-name">PSeInt · Indeterminado con Mientras</div><button class="copy-btn" type="button" data-copy-target="ind-mientras">Copiar código</button></div><pre id="ind-mientras"><code>//PEDRO NUÑEZ YEPIZ MATR: 300523
+//DESCR: CUENTA Y SUMA NUMEROS HASTA INGRESAR 0
+//FECHA: 13 OCTUBRE 2026
+Algoritmo NYP_ACT4_04
+    Definir i, num, suma Como Entero;
+    num = 5;
+    i = 0;
+    suma = 0;
+    Mientras num &lt;&gt; 0 Hacer
+        Escribir "DAME UN NUMERO O CERO (0) PARA SALIR: ";
+        Leer num;
+        i = i + 1;
+        suma = suma + num;
+    FinMientras
+    Escribir "EL TOTAL DE NUMEROS ES = ", i - 1;
+    Escribir "LA SUMA DE LOS NUMEROS = ", suma;
+FinAlgoritmo</code></pre></section></div><div class="example-diagram-column"><figure class="diagram-card example-flow-figure"><img src="../images/ciclos/ciclo_indeterminado_mientras_flujograma.webp" alt="Indeterminado con Mientras" loading="lazy" decoding="async"><figcaption>El valor 0 funciona como centinela.</figcaption></figure></div></div>
+
+        <div class="example-code-diagram-grid"><div class="example-code-column"><section class="code-card code-dark"><div class="code-head"><div class="file-name">PSeInt · Indeterminado con Repetir</div><button class="copy-btn" type="button" data-copy-target="ind-repetir">Copiar código</button></div><pre id="ind-repetir"><code>//PEDRO NUÑEZ YEPIZ MATR: 300523
+//DESCR: CUENTA Y SUMA NUMEROS HASTA INGRESAR 0
+//FECHA: 13 OCTUBRE 2026
+Algoritmo NYP_ACT4_05
+    Definir i, num, suma Como Entero;
+    i = 0;
+    suma = 0;
+    Repetir
+        Escribir "DAME UN NUMERO O CERO (0) PARA SALIR: ";
+        Leer num;
+        i = i + 1;
+        suma = suma + num;
+    Mientras Que num &lt;&gt; 0;
+    Escribir "EL TOTAL DE NUMEROS ES = ", i - 1;
+    Escribir "LA SUMA DE LOS NUMEROS = ", suma;
+FinAlgoritmo</code></pre></section></div><div class="example-diagram-column"><figure class="diagram-card example-flow-figure"><img src="../images/ciclos/ciclo_indeterminado_repetir_flujograma.webp" alt="Indeterminado con Repetir" loading="lazy" decoding="async"><figcaption>Repetir ejecuta primero y evalúa el centinela al final.</figcaption></figure></div></div>
+
+        <div class="explain-card"><h3>Explicación</h3><p>En ambos ejemplos el usuario decide cuántos números ingresará. El 0 no se considera un dato válido: solo marca la terminación. Con Mientras se necesita un valor inicial que permita entrar al ciclo; con Repetir no, porque se ejecuta primero.</p></div>
+      </section>
+
+      <section class="lesson-section" id="mixto">
+        <div class="section-heading"><i class="bi bi-sliders"></i><h2>CICLO MIXTO · CONTADOR Y BANDERA</h2></div>
+        <p class="lesson-lead">El ciclo mixto combina un límite conocido con una condición que puede terminar el proceso antes de llegar a ese límite.</p>
+        <div class="explain-card"><h3>¿Cómo funciona?</h3><p>El contador limita el máximo de vueltas y la bandera representa si todavía se debe continuar. Mientras ambas condiciones sean verdaderas, el ciclo sigue.</p><p>Es útil en intentos de acceso, búsquedas con máximo de revisiones, procesos cancelables y sistemas donde existe un límite pero también una salida por evento.</p><div class="analogy"><strong>Analogía:</strong> tienes diez intentos disponibles, pero puedes detenerte antes. El contador mide cuántos intentos llevas y la bandera indica si todavía quieres continuar.</div></div>
+        <div class="example-code-diagram-grid"><div class="example-code-column"><section class="code-card code-dark"><div class="code-head"><div class="file-name">PSeInt · Ciclo mixto</div><button class="copy-btn" type="button" data-copy-target="mixto">Copiar código</button></div><pre id="mixto"><code>//PEDRO NUÑEZ YEPIZ MATR: 300523
+//DESCR: CICLO MIXTO CONTADOR Y BANDERA
+//FECHA: 13 OCTUBRE 2026
+Algoritmo NYP_ACT4_06
+    Definir contador Como Entero;
+    Definir bandera Como Logico;
+    Definir continuar Como Caracter;
+    contador = 0;
+    bandera = Verdadero;
+    Mientras (contador &lt; 10) Y bandera Hacer
+        Escribir "¿CONTINUAR? (S/N): ";
+        Leer continuar;
+        Si continuar &lt;&gt; "S" Entonces
+            bandera = Falso;
+        FinSi
+        contador = contador + 1;
+    FinMientras
+FinAlgoritmo</code></pre></section></div><div class="example-diagram-column"><figure class="diagram-card example-flow-figure"><img src="../images/ciclos/ciclo_mixto_contador_bandera_caracteristicas.webp" alt="Ciclo mixto contador y bandera" loading="lazy" decoding="async"><figcaption>El ciclo puede terminar por límite o por evento.</figcaption></figure></div></div>
+      </section>
+
+      <section class="lesson-section" id="anidacion">
+        <div class="section-heading"><i class="bi bi-grid-3x3-gap-fill"></i><h2>4.4 · CICLOS ANIDADOS</h2></div>
+        <p class="lesson-lead">Un ciclo anidado coloca una repetición dentro de otra. El ciclo interno completa todas sus vueltas por cada vuelta del ciclo externo.</p>
+        <div class="explain-card"><h3>¿Para qué sirven?</h3><p>Son útiles en tablas de multiplicar, matrices, renglones y columnas, combinaciones, horarios y cualquier problema con dos niveles de repetición.</p><p>Si el ciclo externo se repite 10 veces y el interno 10 veces por cada vuelta, el cuerpo interno se ejecuta 100 veces.</p><div class="analogy"><strong>Analogía:</strong> un edificio con 10 pisos y 10 habitaciones por piso. Primero recorres todas las habitaciones del piso actual y después avanzas al siguiente piso.</div></div>
+
+        <div class="example-code-diagram-grid"><div class="example-code-column"><section class="code-card code-dark"><div class="code-head"><div class="file-name">PSeInt · Dos ciclos Para anidados</div><button class="copy-btn" type="button" data-copy-target="anidado-para">Copiar código</button></div><pre id="anidado-para"><code>//PEDRO NUÑEZ YEPIZ MATR: 300523
+//DESCR: TABLAS DE MULTIPLICACION CON DOS CICLOS PARA
+//FECHA: 13 OCTUBRE 2026
+Algoritmo NYP_ACT4_07
+    Definir i, j Como Entero;
+    Para i = 1 Hasta 10 Hacer
+        Limpiar Pantalla;
+        Escribir "TABLA DEL: ", i;
+        Para j = 1 Hasta 10 Hacer
+            Escribir i, " * ", j, " = ", i * j;
+        FinPara
+        Esperar Tecla;
+    FinPara
+FinAlgoritmo</code></pre></section></div><div class="example-diagram-column"><figure class="diagram-card example-flow-figure"><img src="../images/ciclos/ciclos_para_anidados_tablas_flujograma.webp" alt="Ciclos Para anidados" loading="lazy" decoding="async"><figcaption>El ciclo interno completa diez multiplicaciones por cada tabla.</figcaption></figure></div></div>
+
+        <div class="example-code-diagram-grid"><div class="example-code-column"><section class="code-card code-dark"><div class="code-head"><div class="file-name">PSeInt · Repetir externo + Para interno</div><button class="copy-btn" type="button" data-copy-target="anidado-repetir">Copiar código</button></div><pre id="anidado-repetir"><code>//PEDRO NUÑEZ YEPIZ MATR: 300523
+//DESCR: TABLAS DE MULTIPLICACION CON REPETIR Y PARA
+//FECHA: 13 OCTUBRE 2026
+Algoritmo NYP_ACT4_08
+    Definir i, j Como Entero;
+    i = 1;
+    Repetir
+        Limpiar Pantalla;
+        Escribir "TABLA DEL: ", i;
+        Para j = 1 Hasta 10 Hacer
+            Escribir i, " * ", j, " = ", i * j;
+        FinPara
+        i = i + 1;
+        Esperar Tecla;
+    Mientras Que i &lt;= 10;
+FinAlgoritmo</code></pre></section></div><div class="example-diagram-column"><figure class="diagram-card example-flow-figure"><img src="../images/ciclos/ciclos_anidados_repetir_para_tablas.webp" alt="Repetir externo y Para interno" loading="lazy" decoding="async"><figcaption>Repetir controla las tablas y Para los multiplicadores.</figcaption></figure></div></div>
+        <div class="explain-card"><h3>Explicación de la anidación</h3><p>En el primer caso, <code>i</code> y <code>j</code> son controlados por Para. En el segundo, <code>i</code> se controla manualmente con Repetir mientras <code>j</code> sigue usando Para. Ambos enfoques muestran que las sentencias pueden combinarse.</p></div>
+      </section>
+
+      <section class="lesson-section" id="practica">
+        <div class="section-heading"><i class="bi bi-pencil-square"></i><h2>PRÁCTICA · EJERCICIOS PARA RESOLVER</h2></div>
+        <div class="practice-grid"><article class="practice-card"><h4>1 · Suma del 1 al N</h4><p>Usa ciclo determinado, contador y acumulador.</p></article><article class="practice-card"><h4>2 · Captura hasta 0</h4><p>Usa ciclo indeterminado y centinela.</p></article><article class="practice-card"><h4>3 · Máximo 5 intentos</h4><p>Usa ciclo mixto con contador y bandera.</p></article><article class="practice-card"><h4>4 · Tablas del 1 al 10</h4><p>Usa ciclos anidados.</p></article></div>
+      </section>
+
+      <section class="quiz-section" id="repaso">
+        <div class="quiz-heading"><i class="bi bi-check-square-fill"></i><span>REPASO RÁPIDO · 8 PREGUNTAS</span></div>
+        <div class="quiz-list">
+          <article class="quiz-q" data-answer="b"><h3>1. ¿Qué caracteriza a un ciclo determinado?</h3><div class="quiz-options"><button data-opt="a">Siempre usa bandera.</button><button data-opt="b">Se conoce o calcula el número de repeticiones.</button><button data-opt="c">Siempre usa centinela.</button></div><div class="quiz-feedback"></div></article>
+          <article class="quiz-q" data-answer="c"><h3>2. ¿Qué sentencias pueden expresar un ciclo determinado?</h3><div class="quiz-options"><button data-opt="a">Solo Para.</button><button data-opt="b">Solo Mientras y Repetir.</button><button data-opt="c">Para, Mientras o Repetir.</button></div><div class="quiz-feedback"></div></article>
+          <article class="quiz-q" data-answer="a"><h3>3. ¿Cuál es la diferencia principal entre Mientras y Repetir?</h3><div class="quiz-options"><button data-opt="a">Mientras evalúa al inicio y Repetir al final.</button><button data-opt="b">Repetir no usa condición.</button><button data-opt="c">Mientras solo sirve para determinados.</button></div><div class="quiz-feedback"></div></article>
+          <article class="quiz-q" data-answer="b"><h3>4. ¿Qué es un centinela?</h3><div class="quiz-options"><button data-opt="a">Un contador automático.</button><button data-opt="b">Un valor especial que indica terminar.</button><button data-opt="c">Una sentencia de ciclo.</button></div><div class="quiz-feedback"></div></article>
+          <article class="quiz-q" data-answer="c"><h3>5. ¿Qué representa normalmente una bandera?</h3><div class="quiz-options"><button data-opt="a">Una suma.</button><button data-opt="b">El número exacto de vueltas.</button><button data-opt="c">Un estado lógico.</button></div><div class="quiz-feedback"></div></article>
+          <article class="quiz-q" data-answer="a"><h3>6. En un ciclo mixto, ¿qué pasa si la bandera cambia a Falso antes del límite?</h3><div class="quiz-options"><button data-opt="a">Termina anticipadamente.</button><button data-opt="b">Reinicia el contador.</button><button data-opt="c">Se vuelve determinado.</button></div><div class="quiz-feedback"></div></article>
+          <article class="quiz-q" data-answer="b"><h3>7. Si el ciclo externo se repite 10 veces y el interno 10 veces por vuelta, ¿cuántas ejecuciones internas hay?</h3><div class="quiz-options"><button data-opt="a">20.</button><button data-opt="b">100.</button><button data-opt="c">10.</button></div><div class="quiz-feedback"></div></article>
+          <article class="quiz-q" data-answer="c"><h3>8. ¿Qué diferencia tipo de ciclo y sentencia de ciclo?</h3><div class="quiz-options"><button data-opt="a">Son lo mismo.</button><button data-opt="b">El tipo depende del nombre de la sentencia.</button><button data-opt="c">El tipo describe el control; la sentencia es la herramienta para escribirlo.</button></div><div class="quiz-feedback"></div></article>
+        </div>
+      </section>
+
+      <div class="summary"><div class="bulb">💡</div><div><b>EN RESUMEN</b><br>Determinado, indeterminado y mixto describen cómo se controla una repetición. Para, Mientras y Repetir son sentencias con las que podemos implementar esos controles. La elección correcta depende del problema.</div></div>
+
+      <nav class="page-navigation" aria-label="Navegación entre unidades"><a class="page-nav-btn previous" href="unidad_03_estructuras_seleccion.html"><i class="bi bi-arrow-left"></i><span>Anterior</span></a><a class="page-nav-btn home" href="../index.html"><i class="bi bi-house-door-fill"></i><span>Inicio</span></a><span></span></nav>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../scripts/codigo.js" defer></script>
+  <script src="../scripts/pages/unidad_04_iteracion_mp.js" defer></script>
+  <script src="../scripts/layout.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+
+<html lang="es-MX">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#006847" name="theme-color"/>
+<meta content="Unidad III · Estructuras de control de selección · Metodología de la Programación" name="description"/>
+<title>Unidad III · Estructuras de control de selección</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="../styles/styles.css" rel="stylesheet"/>
+<link href="../styles/pages/paginas_uniformes.css" rel="stylesheet"/>
+<link href="../styles/pages/tema_codigo_ide_general.css" rel="stylesheet"/>
+<link href="../styles/pages/unidad_03_seleccion_mp.css" rel="stylesheet"/><link href="../styles/pages/unidad_03_seleccion_mp_2columnas.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+</head>
+<body class="pe-home pe-course-page page-unidad-03" data-depth="../">
+<div id="site-header"></div>
+<section class="topic-course-hero">
+<div class="container-fluid pe-shell">
+<div class="row g-4 align-items-center py-4 py-xl-5">
+<div class="col-xl-7">
+<div class="topic-number-pill"><i class="bi bi-signpost-split-fill"></i> UNIDAD III · DURACIÓN: 3 HORAS</div>
+<div class="course-kicker">METODOLOGÍA DE LA PROGRAMACIÓN</div>
+<h1 class="course-title">Estructuras de control de selección</h1>
+<p class="course-subtitle mb-0">Selección simple, doble, múltiple y anidada utilizando la sintaxis de PSeInt empleada en clase.</p>
+<div class="hero-line"></div>
+<div class="course-quote"><i class="bi bi-diagram-3"></i><span>Evaluar una condición → elegir un camino → continuar el algoritmo.</span></div>
+</div>
+<div class="col-xl-5">
+<div data-topic="Unidad III · Estructuras de control de selección" id="course-info"></div>
+</div>
+</div>
+</div>
+</section>
+<main class="container-fluid pe-shell page-content-shell">
+<div class="page-content-card content">
+<div class="note purpose-box"><b>Propósito:</b> aplicar estructuras de selección para resolver problemas donde una condición modifica el flujo del algoritmo.</div>
+<div class="official-box"><strong>Competencia oficial.</strong><br/>Aplicar las estructuras de selección, mediante la propuesta de soluciones, para resolver problemas de ingeniería donde se requiere la toma de decisión, con una actitud analítica, propositiva y responsable.</div>
+<div class="syntax-note"><strong>Convención de código:</strong> usar comentarios de identificación, <code>Algoritmo</code> / <code>FinAlgoritmo</code>, sangría y <strong>punto y coma</strong> en las sentencias <code>Definir;</code>, <code>Leer;</code>, asignaciones y <code>Escribir;</code>.</div>
+<nav aria-label="Contenido de la unidad" class="topic-nav">
+<a href="#u31">3.1 Selección simple</a>
+<a href="#u32">3.2 Selección doble</a>
+<a href="#u33">3.3 Selección múltiple</a>
+<a href="#u34">3.4 Anidación</a>
+<a href="#cascadas">Cascadas</a>
+<a href="#multiple-anidada">Múltiple anidada</a>
+<a href="#practica">Práctica</a>
+<a href="#repaso">Repaso</a>
+</nav>
+<section class="lesson-section" id="u31">
+<div class="section-heading"><i class="bi bi-check2"></i><h2>3.1 · SELECCIÓN SIMPLE</h2></div>
+<p class="lesson-lead">La selección simple se utiliza cuando solo necesitamos ejecutar instrucciones si una condición resulta verdadera. Si la condición es falsa, no sucede nada dentro del bloque y el algoritmo continúa con la siguiente instrucción.</p>
+<div class="example-explainer">
+<h4>¿Cómo funciona?</h4>
+<p>Esta estructura revisa una sola condición. Si se cumple, entra al bloque del <code>Si</code> y ejecuta las instrucciones. Si no se cumple, simplemente pasa de largo. Es útil cuando solo queremos realizar una acción en un caso específico, sin necesitar una alternativa explícita.</p>
+<h4>Analogía</h4>
+<p>Imagina una puerta automática que solo se abre si detecta movimiento. Si hay movimiento, la puerta se abre; si no hay movimiento, la puerta permanece cerrada. No hay una segunda acción: únicamente se ejecuta algo cuando la condición es verdadera.</p>
+</div>
+<section class="code-card code-dark">
+<div class="code-head">
+<div class="file-name">Sintaxis base en PSeInt</div>
+<button class="copy-btn" data-copy-target="sintaxis-simple" type="button">Copiar sintaxis</button>
+</div>
+<pre id="sintaxis-simple"><code>Si condicion Entonces
+	// instrucciones
+FinSi</code></pre>
+</section>
+<figure class="diagram-card">
+<img alt="Diagrama de la estructura selección simple" decoding="async" loading="lazy" src="../images/diagramas/seleccion_simple.webp"/>
+<figcaption>Diagrama general de la selección simple: solamente actúa cuando la condición es verdadera.</figcaption>
+</figure>
+<div class="example-code-diagram-grid"><div class="example-code-column"><section class="code-card code-dark">
+<div class="code-head">
+<div class="file-name">PSeInt · NYP_ACT3_01</div>
+<button class="copy-btn" data-copy-target="codigo-simple" type="button">Copiar código</button>
+</div>
+<pre id="codigo-simple"><code>//PEDRO NUÑEZ YEPIZ MATR: 300523
+//DESCR: SELECCIONES SIMPLES CONSECUTIVAS - MAYOR O MENOR DE EDAD
+//FECHA: 11 OCTUBRE 2026
+Algoritmo NYP_ACT3_01
+	Definir edad Como Entero;
+	Escribir "INGRESA TU EDAD: ";
+	Leer edad;
+
+	Si edad &gt;= 18 Entonces
+		Escribir "ES MAYOR DE EDAD";
+	FinSi
+
+	Si edad &lt; 18 Entonces
+		Escribir "ES MENOR DE EDAD";
+	FinSi
+FinAlgoritmo</code></pre>
+</section></div><div class="example-diagram-column"><figure class="diagram-card example-flow-figure">
+<img alt="Diagrama de flujo del ejemplo de selecciones simples consecutivas" decoding="async" loading="lazy" src="../images/diagramas/ejemplo_seleccion_simple_act3_01.webp"/>
+<figcaption>Diagrama de flujo completo del ejemplo: dos selecciones simples consecutivas para analizar la edad.</figcaption>
+</figure></div></div>
+
+<div class="example-explainer">
+<h4>Explicación del ejemplo</h4>
+<p>En este ejemplo se leen los datos de la variable <code>edad</code> y después se revisan <strong>dos condiciones independientes</strong>. La primera valida si la edad es mayor o igual a 18; si lo es, se escribe que la persona es mayor de edad. Después, el algoritmo sigue y evalúa una segunda condición distinta: si la edad es menor de 18, escribe que es menor de edad.</p>
+<p>Aunque el problema parece sencillo, este ejemplo permite ver con claridad que una selección simple <strong>no obliga</strong> a tener un camino alterno. Cada condición se revisa por separado. Es como pasar por dos filtros consecutivos: el primero pregunta “¿ya es mayor de edad?” y el segundo pregunta “¿todavía es menor de edad?”. Solo se ejecuta el mensaje que corresponda.</p>
+</div>
+</section>
+<section class="lesson-section" id="u32">
+<div class="section-heading"><i class="bi bi-arrows-split"></i><h2>3.2 · SELECCIÓN DOBLE</h2></div>
+<p class="lesson-lead">La selección doble permite elegir uno de dos caminos excluyentes: si la condición es verdadera se ejecuta un bloque, y si es falsa se ejecuta otro.</p>
+<div class="example-explainer">
+<h4>¿Cómo funciona?</h4>
+<p>En esta estructura el algoritmo siempre toma una decisión entre dos alternativas. La condición se evalúa una sola vez, pero el resultado determina si se sigue el camino verdadero o el camino falso. Es muy útil cuando el problema exige una respuesta obligatoria entre dos opciones.</p>
+<h4>Analogía</h4>
+<p>Piensa en un interruptor de luz. Solamente tiene dos estados: encendido o apagado. No existe una tercera posibilidad. De forma parecida, en una selección doble el algoritmo decide entre dos rutas claramente definidas.</p>
+</div>
+<section class="code-card code-dark">
+<div class="code-head">
+<div class="file-name">Sintaxis base en PSeInt</div>
+<button class="copy-btn" data-copy-target="sintaxis-doble" type="button">Copiar sintaxis</button>
+</div>
+<pre id="sintaxis-doble"><code>Si condicion Entonces
+	// camino verdadero
+SiNo
+	// camino falso
+FinSi</code></pre>
+</section>
+<figure class="diagram-card">
+<img alt="Diagrama de la estructura selección doble" decoding="async" loading="lazy" src="../images/diagramas/seleccion_doble.webp"/>
+<figcaption>Diagrama general de la selección doble: el algoritmo toma exactamente uno de dos caminos.</figcaption>
+</figure>
+<div class="example-code-diagram-grid"><div class="example-code-column"><section class="code-card code-dark">
+<div class="code-head">
+<div class="file-name">PSeInt · NYP_ACT3_02</div>
+<button class="copy-btn" data-copy-target="codigo-doble" type="button">Copiar código</button>
+</div>
+<pre id="codigo-doble"><code>//PEDRO NUÑEZ YEPIZ MATR: 300523
+//DESCR: SELECCION DOBLE - NUMERO PAR O IMPAR
+//FECHA: 11 OCTUBRE 2026
+Algoritmo NYP_ACT3_02
+	Definir numero Como Entero;
+	Escribir "DAME UN NUMERO ENTERO: ";
+	Leer numero;
+
+	Si numero MOD 2 = 0 Entonces
+		Escribir "PAR";
+	SiNo
+		Escribir "IMPAR";
+	FinSi
+FinAlgoritmo</code></pre>
+</section></div><div class="example-diagram-column"><figure class="diagram-card example-flow-figure">
+<img alt="Diagrama de flujo del ejemplo número par o impar" decoding="async" loading="lazy" src="../images/diagramas/ejemplo_seleccion_doble_act3_02.webp"/>
+<figcaption>Diagrama de flujo completo del ejemplo: clasificación de un número como PAR o IMPAR.</figcaption>
+</figure></div></div>
+
+<div class="example-explainer">
+<h4>Explicación del ejemplo</h4>
+<p>El algoritmo solicita un número entero y revisa si al dividirlo entre 2 el residuo es cero. Esa operación se hace con <code>MOD</code>. Si el residuo es cero, el número es par; en caso contrario, es impar.</p>
+<p>Este ejemplo es un clásico porque muestra muy bien la idea de “uno u otro”. El número <strong>no puede ser par e impar al mismo tiempo</strong>, así que la selección doble resulta ideal. Es como revisar una moneda: o cae del lado de cara o cae del lado de cruz; siempre habrá solo un resultado.</p>
+</div>
+</section>
+<section class="lesson-section" id="u33">
+<div class="section-heading"><i class="bi bi-list-check"></i><h2>3.3 · SELECCIÓN MÚLTIPLE</h2></div>
+<p class="lesson-lead">La selección múltiple con <code>Segun...Hacer...FinSegun</code> se usa cuando una variable puede tomar varios valores y cada valor debe activar una acción distinta.</p>
+<div class="example-explainer">
+<h4>¿Cómo funciona?</h4>
+<p>En lugar de preguntar varias veces con <code>Si...SiNo</code>, esta estructura compara el valor de una variable con diferentes opciones. Cuando encuentra coincidencia, ejecuta el bloque correspondiente. Si ninguna opción coincide, puede utilizarse <code>De Otro Modo</code> para atender el caso no contemplado.</p>
+<h4>Analogía</h4>
+<p>Imagínala como el menú de una cafetería automática. Presionas el botón 1 y obtienes café; presionas el 2 y obtienes té; presionas el 3 y obtienes chocolate. Cada opción representa una respuesta distinta según el valor ingresado.</p>
+</div>
+<section class="code-card code-dark">
+<div class="code-head">
+<div class="file-name">Sintaxis base en PSeInt</div>
+<button class="copy-btn" data-copy-target="sintaxis-multiple" type="button">Copiar sintaxis</button>
+</div>
+<pre id="sintaxis-multiple"><code>Segun variable Hacer
+	1:
+		// instrucciones opcion 1
+	2:
+		// instrucciones opcion 2
+	De Otro Modo:
+		// opcion no contemplada
+FinSegun</code></pre>
+</section>
+<figure class="diagram-card">
+<img alt="Diagrama de la estructura selección múltiple" decoding="async" loading="lazy" src="../images/diagramas/seleccion_multiple.webp"/>
+<figcaption>Diagrama general de la selección múltiple: la variable determina cuál opción se ejecuta.</figcaption>
+</figure>
+<div class="example-code-diagram-grid"><div class="example-code-column"><section class="code-card code-dark">
+<div class="code-head">
+<div class="file-name">PSeInt · NYP_ACT3_03</div>
+<button class="copy-btn" data-copy-target="codigo-multiple" type="button">Copiar código</button>
+</div>
+<pre id="codigo-multiple"><code>//PEDRO NUÑEZ YEPIZ MATR: 300523
+//DESCR: SELECCION MULTIPLE - CALCULADORA BASICA
+//FECHA: 11 OCTUBRE 2026
+Algoritmo NYP_ACT3_03
+	Definir num1, num2, resultado Como Real;
+	Definir opcion Como Entero;
+
+	Escribir "DAME EL PRIMER NUMERO: ";
+	Leer num1;
+	Escribir "DAME EL SEGUNDO NUMERO: ";
+	Leer num2;
+
+	Escribir "1.- SUMA";
+	Escribir "2.- RESTA";
+	Escribir "3.- MULTIPLICACION";
+	Escribir "4.- DIVISION";
+	Leer opcion;
+
+	Segun opcion Hacer
+		1:
+			resultado = num1 + num2;
+			Escribir "RESULTADO = ", resultado;
+		2:
+			resultado = num1 - num2;
+			Escribir "RESULTADO = ", resultado;
+		3:
+			resultado = num1 * num2;
+			Escribir "RESULTADO = ", resultado;
+		4:
+			Si num2 &lt;&gt; 0 Entonces
+				resultado = num1 / num2;
+				Escribir "RESULTADO = ", resultado;
+			SiNo
+				Escribir "NO SE PUEDE DIVIDIR ENTRE CERO";
+			FinSi
+		De Otro Modo:
+			Escribir "OPCION NO VALIDA";
+	FinSegun
+FinAlgoritmo</code></pre>
+</section></div><div class="example-diagram-column"><figure class="diagram-card example-flow-figure">
+<img alt="Diagrama de flujo del ejemplo calculadora básica" decoding="async" loading="lazy" src="../images/diagramas/ejemplo_seleccion_multiple_act3_03.webp"/>
+<figcaption>Diagrama de flujo completo del ejemplo: calculadora básica con validación para división entre cero.</figcaption>
+</figure></div></div>
+
+<div class="example-explainer">
+<h4>Explicación del ejemplo</h4>
+<p>En este algoritmo se leen dos números y luego se muestra un pequeño menú de operaciones. El valor que el usuario escribe en <code>opcion</code> determina qué bloque se ejecutará. Si elige 1, se realiza una suma; si elige 2, una resta; si elige 3, una multiplicación; y si elige 4, se intenta una división.</p>
+<p>Observa que en la opción 4 aparece una validación adicional para evitar dividir entre cero. Esto demuestra que dentro de una selección múltiple también pueden colocarse otras estructuras. Una buena analogía es la de una calculadora de bolsillo: primero seleccionas la operación y después el equipo hace el trabajo específico que corresponde a esa tecla.</p>
+</div>
+</section>
+<section class="lesson-section" id="u34">
+<div class="section-heading"><i class="bi bi-diagram-3-fill"></i><h2>3.4 · ANIDACIÓN</h2></div>
+<p class="lesson-lead">La anidación ocurre cuando una estructura de selección contiene otra estructura en su interior. Esto permite tomar decisiones más detalladas, paso a paso.</p>
+<div class="example-explainer">
+<h4>¿Cómo funciona?</h4>
+<p>Primero se evalúa una condición principal. Dependiendo del resultado, el algoritmo entra a un bloque donde puede existir otra condición interna. De esta manera, la segunda decisión depende de la primera. La regla importante es que la estructura interna debe cerrarse antes que la externa.</p>
+<h4>Analogía</h4>
+<p>Es parecido a pasar por filtros de acceso en un edificio. Primero te preguntan si puedes entrar al edificio; después, ya dentro, te preguntan a qué área deseas pasar. No tendría sentido preguntar por la oficina si antes no se autorizó el acceso general.</p>
+</div>
+<div class="row g-4">
+<div class="col-xl-4">
+<figure class="diagram-card">
+<img alt="Diagrama de anidación por verdadero" decoding="async" loading="lazy" src="../images/diagramas/anidacion_verdadero.webp"/>
+<figcaption>Anidación por verdadero: la segunda condición se revisa si la primera es verdadera.</figcaption>
+</figure>
+</div>
+<div class="col-xl-4">
+<figure class="diagram-card">
+<img alt="Diagrama de anidación por falso" decoding="async" loading="lazy" src="../images/diagramas/anidacion_falso.webp"/>
+<figcaption>Anidación por falso: la segunda condición se revisa si la primera es falsa.</figcaption>
+</figure>
+</div>
+<div class="col-xl-4">
+<figure class="diagram-card h-100">
+<img alt="Diagrama de anidación por verdadero y falso" decoding="async" loading="lazy" src="../images/diagramas/anidacion_verdadero_falso.webp"/>
+<figcaption>Anidación por verdadero y falso: ambos caminos de la primera condición contienen decisiones internas.</figcaption>
+</figure>
+</div>
+</div>
+<section class="code-card code-dark mt-4">
+<div class="code-head">
+<div class="file-name">Sintaxis base en PSeInt</div>
+<button class="copy-btn" data-copy-target="sintaxis-anidada" type="button">Copiar sintaxis</button>
+</div>
+<pre id="sintaxis-anidada"><code>Si condicion1 Entonces
+	Si condicion2 Entonces
+		// accion A
+	SiNo
+		// accion B
+	FinSi
+SiNo
+	// accion C
+FinSi</code></pre>
+</section>
+<article class="mt-4">
+<h3 class="h4 fw-bold text-success mb-3">Ejemplo · NYP_ACT3_04 · Anidación por verdadero</h3>
+<div class="example-code-diagram-grid"><div class="example-code-column"><section class="code-card code-dark">
+<div class="code-head">
+<div class="file-name">PSeInt · NYP_ACT3_04</div>
+<button class="copy-btn" data-copy-target="codigo-anidacion-verdadero" type="button">Copiar código</button>
+</div>
+<pre id="codigo-anidacion-verdadero"><code>//PEDRO NUÑEZ YEPIZ MATR: 300523
+//DESCR: ANIDACION POR VERDADERO
+//FECHA: 11 OCTUBRE 2026
+Algoritmo NYP_ACT3_04
+	Definir edad Como Entero;
+	Definir tieneIdentificacion Como Logico;
+	Escribir "DAME LA EDAD: ";
+	Leer edad;
+	Escribir "TIENE IDENTIFICACION (Verdadero/Falso): ";
+	Leer tieneIdentificacion;
+
+	Si edad &gt;= 18 Entonces
+		Si tieneIdentificacion = Verdadero Entonces
+			Escribir "PUEDE REALIZAR EL TRAMITE";
+		SiNo
+			Escribir "FALTA IDENTIFICACION";
+		FinSi
+	SiNo
+		Escribir "ES MENOR DE EDAD";
+	FinSi
+FinAlgoritmo</code></pre>
+</section></div><div class="example-diagram-column"><figure class="diagram-card example-flow-figure">
+<img alt="Diagrama de flujo del ejemplo de anidación por verdadero" decoding="async" loading="lazy" src="../images/diagramas/ejemplo_anidacion_verdadero_act3_04.webp"/>
+<figcaption>Diagrama de flujo completo del ejemplo: primero se valida la edad y, si procede, se revisa la identificación.</figcaption>
+</figure></div></div>
+
+<div class="example-explainer">
+<h4>Explicación del ejemplo</h4>
+<p>Este algoritmo primero revisa si la persona tiene la edad suficiente. Solo si cumple con esa condición entra a una segunda validación: comprobar si tiene identificación. Eso significa que la segunda decisión <strong>depende</strong> de la primera.</p>
+<p>La lógica es parecida a un trámite real: primero confirmas que la persona sea mayor de edad; después verificas si lleva su identificación. Si no cumple el primer requisito, ya no hace falta revisar el segundo. Esa es justamente la ventaja de una anidación por verdadero.</p>
+</div>
+</article>
+<article class="mt-4">
+<h3 class="h4 fw-bold text-success mb-3">Ejemplo · NYP_ACT3_06 · Anidación por verdadero y falso</h3>
+<div class="example-code-diagram-grid"><div class="example-code-column"><section class="code-card code-dark">
+<div class="code-head">
+<div class="file-name">PSeInt · NYP_ACT3_06</div>
+<button class="copy-btn" data-copy-target="codigo-anidacion-vf" type="button">Copiar código</button>
+</div>
+<pre id="codigo-anidacion-vf"><code>//PEDRO NUÑEZ YEPIZ MATR: 300523
+//DESCR: ANIDACION POR VERDADERO Y FALSO
+//FECHA: 11 OCTUBRE 2026
+Algoritmo NYP_ACT3_06
+	Definir esAdmin, activo, visitante Como Logico;
+	Escribir "ES ADMINISTRADOR (Verdadero/Falso): ";
+	Leer esAdmin;
+
+	Si esAdmin = Verdadero Entonces
+		Escribir "CUENTA ACTIVA (Verdadero/Falso): ";
+		Leer activo;
+		Si activo = Verdadero Entonces
+			Escribir "PANEL DE ADMINISTRACION";
+		SiNo
+			Escribir "CUENTA DESACTIVADA";
+		FinSi
+	SiNo
+		Escribir "ES VISITANTE (Verdadero/Falso): ";
+		Leer visitante;
+		Si visitante = Verdadero Entonces
+			Escribir "PAGINA PUBLICA";
+		SiNo
+			Escribir "ACCESO RESTRINGIDO";
+		FinSi
+	FinSi
+FinAlgoritmo</code></pre>
+</section></div><div class="example-diagram-column"><figure class="diagram-card example-flow-figure">
+<img alt="Diagrama de flujo del ejemplo de anidación por verdadero y falso" decoding="async" loading="lazy" src="../images/diagramas/ejemplo_anidacion_verdadero_falso_act3_06.webp"/>
+<figcaption>Diagrama de flujo completo del ejemplo: cada camino de la primera condición contiene una segunda decisión.</figcaption>
+</figure></div></div>
+
+<div class="example-explainer">
+<h4>Explicación del ejemplo</h4>
+<p>Aquí la primera pregunta es si el usuario es administrador. Si la respuesta es verdadera, el algoritmo entra a un segundo filtro para comprobar si la cuenta está activa. Si la primera respuesta es falsa, se sigue otro camino en el que se revisa si el usuario es visitante. Cada rama tiene su propia condición interna.</p>
+<p>Esta estructura es útil cuando ambos caminos necesitan más detalle. Una analogía sencilla es la entrada de un sistema: si eres administrador, te revisan permisos administrativos; si no lo eres, te revisan permisos de visitante. En ambos casos existe una segunda validación.</p>
+</div>
+</article>
+</section>
+<section class="lesson-section" id="cascadas">
+<div class="section-heading"><i class="bi bi-bezier2"></i><h2>CASCADAS DE DECISIÓN</h2></div>
+<p class="lesson-lead">Las cascadas aparecen cuando varias condiciones se evalúan en secuencia. Dependiendo de cómo estén acomodadas, la evaluación continúa por falso o por verdadero.</p>
+<div class="row g-4">
+<div class="col-xl-6">
+<figure class="diagram-card">
+<img alt="Diagrama de cascada por falso" decoding="async" loading="lazy" src="../images/diagramas/cascada_falso.webp"/>
+<figcaption>Cascada por falso: si una condición falla, se prueba la siguiente.</figcaption>
+</figure>
+<div class="example-explainer">
+<h4>Cascada por falso</h4>
+<p>En una cascada por falso, cuando una condición no se cumple, el algoritmo baja al siguiente nivel para revisar otra posibilidad. Es muy parecida a clasificar un alumno: si no obtuvo 100, entonces se revisa si al menos aprobó; si tampoco aprobó, se concluye que reprobó.</p>
+</div>
+</div>
+<div class="col-xl-6">
+<figure class="diagram-card">
+<img alt="Diagrama de cascada por verdadero" decoding="async" loading="lazy" src="../images/diagramas/cascada_verdadero.webp"/>
+<figcaption>Cascada por verdadero: una condición verdadera permite seguir evaluando otra más.</figcaption>
+</figure>
+<div class="example-explainer">
+<h4>Cascada por verdadero</h4>
+<p>En la cascada por verdadero sucede lo contrario: si una condición se cumple, el algoritmo entra a revisar otra más. Es como abrir una serie de puertas de seguridad: solo si la primera se abre puedes llegar a la segunda, y solo si la segunda se abre puedes llegar a la tercera.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="lesson-section" id="multiple-anidada">
+<div class="section-heading"><i class="bi bi-menu-button-wide-fill"></i><h2>SELECCIÓN MÚLTIPLE ANIDADA</h2></div>
+<p class="lesson-lead">Una selección múltiple anidada ocurre cuando una opción de una estructura <code>Segun...Hacer</code> contiene otra estructura de decisión, como otro <code>Segun</code> o un <code>Si...SiNo</code>. Esto permite organizar problemas con varios niveles de opciones sin perder claridad.</p>
+<div class="example-explainer">
+<h4>¿Cómo funciona?</h4>
+<p>Primero se evalúa la variable del <code>Segun</code> principal. Cuando el valor coincide con una opción, se entra solamente a ese bloque. Dentro de ese bloque puede existir una segunda decisión que se evalúa después.</p>
+<p>La regla más importante es que <strong>cada estructura interna debe cerrarse antes de cerrar la estructura externa</strong>. Si dentro de una opción existe otro <code>Segun</code>, primero aparece su <code>FinSegun</code>; si existe un <code>Si</code>, primero aparece su <code>FinSi</code>. Al final se cierra el <code>Segun</code> principal.</p>
+<h4>Analogía</h4>
+<p>Imagina el menú de un cajero automático. Primero eliges una categoría general, por ejemplo <em>Consultas</em>, <em>Operaciones</em> o <em>Configuración</em>. Si eliges Consultas, aparece un nuevo menú con Saldo, Movimientos o Estado de cuenta. La segunda decisión solo existe después de haber elegido la primera opción.</p>
+</div>
+<h3>Sintaxis en PSeInt</h3>
+<section class="code-card code-dark">
+<div class="code-head"><div class="file-name">PSeInt · Sintaxis de selección múltiple anidada</div><button class="copy-btn" type="button" data-copy-target="sintaxis-multiple-anidada">Copiar sintaxis</button></div>
+<pre id="sintaxis-multiple-anidada"><code>Segun opcion Hacer
+    1:
+        Segun subopcion Hacer
+            1:
+                // accion A;
+            2:
+                // accion B;
+            De Otro Modo:
+                // accion C;
+        FinSegun
+
+    2:
+        // instrucciones de la opcion 2;
+
+    3:
+        Si condicion Entonces
+            // accion D;
+        SiNo
+            // accion E;
+        FinSi
+
+    De Otro Modo:
+        // opcion no contemplada;
+FinSegun</code></pre>
+</section>
+<div class="example-explainer">
+<h4>Cómo leer la sintaxis</h4>
+<p>El <code>Segun opcion Hacer</code> es la decisión principal. En la opción <strong>1</strong> aparece otro <code>Segun</code>, por lo que se crea un segundo nivel de selección. En la opción <strong>3</strong> aparece una estructura <code>Si...SiNo</code>, demostrando que una selección múltiple puede contener otro tipo de estructura de decisión.</p>
+<p>Observa el orden de cierre: primero se cierra la estructura más interna y después la externa. Este comportamiento es semejante a guardar cajas dentro de otras cajas: para cerrar la caja grande primero hay que cerrar correctamente la caja pequeña que está dentro.</p>
+</div>
+<figure class="diagram-card">
+<img src="../images/diagramas/seleccion_multiple_anidada.webp" alt="Diagrama de flujo de una selección múltiple anidada" loading="lazy" decoding="async" />
+<figcaption>Diagrama de flujo de una selección múltiple anidada: una opción puede contener otro Segun y otra puede contener una estructura Si...SiNo.</figcaption>
+</figure>
+<h3>Ejemplo en PSeInt</h3>
+<section class="code-card code-dark">
+<div class="code-head"><div class="file-name">PSeInt · NYP_ACT3_09 · Selección múltiple anidada</div><button class="copy-btn" type="button" data-copy-target="codigo-multiple-anidada">Copiar código</button></div>
+<pre id="codigo-multiple-anidada"><code>//PEDRO NUÑEZ YEPIZ MATR: 300523
+//DESCR: SELECCION MULTIPLE ANIDADA
+//FECHA: 11 OCTUBRE 2026
+Algoritmo NYP_ACT3_09
+    Definir opcion, subopcion Como Entero;
+    Definir condicion Como Logico;
+
+    Escribir "1.- SUBMENU A";
+    Escribir "2.- SUBMENU B";
+    Escribir "3.- VALIDAR CONDICION";
+    Leer opcion;
+
+    Segun opcion Hacer
+        1:
+            Escribir "1.- ACCION A";
+            Escribir "2.- ACCION B";
+            Escribir "3.- ACCION C";
+            Leer subopcion;
+
+            Segun subopcion Hacer
+                1:
+                    Escribir "ACCION A";
+                2:
+                    Escribir "ACCION B";
+                3:
+                    Escribir "ACCION C";
+                De Otro Modo:
+                    Escribir "SUBOPCION NO VALIDA";
+            FinSegun
+
+        2:
+            Escribir "1.- ACCION E";
+            Escribir "2.- ACCION F";
+            Escribir "3.- ACCION G";
+            Leer subopcion;
+
+            Segun subopcion Hacer
+                1:
+                    Escribir "ACCION E";
+                2:
+                    Escribir "ACCION F";
+                3:
+                    Escribir "ACCION G";
+                De Otro Modo:
+                    Escribir "ACCION H";
+            FinSegun
+
+        3:
+            Escribir "DAME LA CONDICION (Verdadero/Falso): ";
+            Leer condicion;
+
+            Si condicion = Verdadero Entonces
+                Escribir "ACCION J";
+            SiNo
+                Escribir "ACCION I";
+            FinSi
+
+        De Otro Modo:
+            Escribir "ACCION K";
+    FinSegun
+FinAlgoritmo</code></pre>
+</section>
+<div class="example-explainer">
+<h4>Explicación del ejemplo</h4>
+<p>El algoritmo comienza leyendo la variable <code>opcion</code>. Si el usuario elige la opción 1, se abre un segundo menú controlado por <code>subopcion</code>. Si selecciona la opción 2, aparece otro submenú diferente. En la opción 3 ya no se utiliza otro <code>Segun</code>; en su lugar se emplea un <code>Si...SiNo</code> para tomar una decisión lógica.</p>
+<p>De esta forma, una sola estructura principal puede dirigir al usuario hacia diferentes niveles de decisión. El diagrama muestra precisamente esta relación: primero se toma una decisión general y, dependiendo del camino elegido, se puede entrar a una segunda selección. Cada rama termina antes de regresar al flujo principal.</p>
+</div>
+</section>
+
+<section class="lesson-section" id="practica">
+<div class="section-heading"><i class="bi bi-pencil-square"></i><h2>PRÁCTICA · EJERCICIOS PARA RESOLVER</h2></div>
+<div class="practice-grid">
+<article class="practice-card"><h4>Ejercicio 4 · PAR o IMPAR</h4><p>Leer un número entero y desplegar si es PAR o IMPAR.</p></article>
+<article class="practice-card"><h4>Ejercicio 5 · Mayor de edad</h4><p>Pedir la edad y responder si la persona es mayor o menor de edad.</p></article>
+<article class="practice-card"><h4>Ejercicio 6 · Evaluación de calificaciones</h4><p>Leer tres calificaciones, calcular el promedio y mostrar Reprobado, Aprobado o Excelente.</p></article>
+<article class="practice-card"><h4>Ejercicio 7 · Calculadora básica</h4><p>Leer dos números y elegir Suma, Resta, Multiplicación o División con <code>Segun...Hacer</code>.</p></article>
+</div>
+</section>
+<section class="quiz-section" id="repaso">
+<div class="quiz-heading"><i class="bi bi-check-square-fill"></i><span>REPASO RÁPIDO · COMPRUEBA LO APRENDIDO</span></div>
+<div class="quiz-list">
+<article class="quiz-q" data-answer="b">
+<h3>1. ¿Qué estructura ejecuta instrucciones solo cuando la condición es verdadera?</h3>
+<div class="quiz-options">
+<button data-opt="a" type="button">Segun...Hacer</button>
+<button data-opt="b" type="button">Si...Entonces...FinSi</button>
+<button data-opt="c" type="button">Para...FinPara</button>
+</div>
+<div aria-live="polite" class="quiz-feedback"></div>
+</article>
+<article class="quiz-q" data-answer="c">
+<h3>2. ¿Qué estructura permite dos caminos mutuamente excluyentes?</h3>
+<div class="quiz-options">
+<button data-opt="a" type="button">Mientras.</button>
+<button data-opt="b" type="button">Segun.</button>
+<button data-opt="c" type="button">Si...Entonces...SiNo...FinSi.</button>
+</div>
+<div aria-live="polite" class="quiz-feedback"></div>
+</article>
+<article class="quiz-q" data-answer="a">
+<h3>3. ¿Qué palabra se usa para la opción no contemplada dentro de Segun?</h3>
+<div class="quiz-options">
+<button data-opt="a" type="button">De Otro Modo.</button>
+<button data-opt="b" type="button">SiNo.</button>
+<button data-opt="c" type="button">FinSi.</button>
+</div>
+<div aria-live="polite" class="quiz-feedback"></div>
+</article>
+<article class="quiz-q" data-answer="c">
+<h3>4. En una anidación, ¿qué estructura debe cerrarse primero?</h3>
+<div class="quiz-options">
+<button data-opt="a" type="button">La exterior.</button>
+<button data-opt="b" type="button">No importa.</button>
+<button data-opt="c" type="button">La interna.</button>
+</div>
+<div aria-live="polite" class="quiz-feedback"></div>
+</article>
+<article class="quiz-q" data-answer="b">
+<h3>5. ¿Qué convención se usa en los algoritmos de esta materia?</h3>
+<div class="quiz-options">
+<button data-opt="a" type="button">No usar comentarios ni punto y coma.</button>
+<button data-opt="b" type="button">Encabezado con comentarios y punto y coma en las sentencias.</button>
+<button data-opt="c" type="button">Escribir únicamente código en C.</button>
+</div>
+<div aria-live="polite" class="quiz-feedback"></div>
+</article>
+</div>
+</section>
+<nav aria-label="Navegación entre unidades" class="page-navigation">
+<a class="page-nav-btn previous" href="unidad_02_expresiones.html"><i class="bi bi-arrow-left"></i><span>Anterior</span></a>
+<a class="page-nav-btn home" href="../index.html"><i class="bi bi-house-door-fill"></i><span>Inicio</span></a>
+<a class="page-nav-btn next" href="unidad_04_estructuras_iteracion.html"><span>Siguiente</span><i class="bi bi-arrow-right"></i></a>
+</nav>
+</div>
+</main>
+<div id="site-footer"></div>
+<script defer="" src="../scripts/codigo.js"></script>
+<script defer="" src="../scripts/pages/unidad_03_seleccion_mp.js"></script>
+<script defer="" src="../scripts/layout.js"></script>
+</body>
+</html>

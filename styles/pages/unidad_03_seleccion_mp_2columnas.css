@@ -1,0 +1,70 @@
+/* =========================================================
+   Unidad III · ajuste de ejemplos: código + diagrama
+   Añadir estas reglas a styles/pages/unidad_03_seleccion_mp.css
+   ========================================================= */
+
+.page-unidad-03 .example-code-diagram-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1.15fr) minmax(340px,.85fr);
+  gap:1.25rem;
+  align-items:stretch;
+  margin:1.25rem 0 1.5rem;
+}
+
+.page-unidad-03 .example-code-column,
+.page-unidad-03 .example-diagram-column{
+  min-width:0;
+}
+
+.page-unidad-03 .example-code-diagram-grid .code-card{
+  height:100%;
+  margin:0;
+}
+
+.page-unidad-03 .example-code-diagram-grid .code-card pre{
+  height:calc(100% - 52px);
+  min-height:420px;
+}
+
+.page-unidad-03 .example-code-diagram-grid .example-flow-figure{
+  height:100%;
+  margin:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  overflow:hidden;
+}
+
+.page-unidad-03 .example-code-diagram-grid .example-flow-figure img{
+  width:100%;
+  height:100%;
+  max-height:720px;
+  object-fit:contain;
+  object-position:center top;
+}
+
+.page-unidad-03 .example-code-diagram-grid .example-flow-figure figcaption{
+  margin-top:.7rem;
+  font-size:.94rem;
+  line-height:1.45;
+}
+
+@media(max-width:1100px){
+  .page-unidad-03 .example-code-diagram-grid{
+    grid-template-columns:1fr;
+  }
+
+  .page-unidad-03 .example-code-diagram-grid .code-card pre{
+    min-height:auto;
+    height:auto;
+  }
+
+  .page-unidad-03 .example-code-diagram-grid .example-flow-figure{
+    height:auto;
+  }
+
+  .page-unidad-03 .example-code-diagram-grid .example-flow-figure img{
+    height:auto;
+    max-height:none;
+  }
+}
